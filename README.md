@@ -11,7 +11,7 @@ Nome             |    Matrícula     |            Responsável           |  Comp
 Gabriel Barbosa  | 201401977        |_Programador Chefe_    | Aluno do 7º Periodo de Eng. de Software|
 João Henrique    | 201401985        | _Gerente de Requisitos_   | Aluno do 7º Periodo de Eng. de Software|
 Lucas Vinicios   | 201401987        | _Tester_   | Aluno do 7º Periodo de Eng. de Software|
-Pedro Victor     | 201401989        | _Gerencia de Configuração_   | Aluno do 7º Periodo de Eng. de Software|
+Pedro Victor     | 201401989        | _Gerente de Configuração_   | Aluno do 7º Periodo de Eng. de Software|
 Raphael Ferreira | 201400171        | _Programador_   | Aluno do 7º Periodo de Eng. de Software|
 Rony Nogueira    | 201406318        | _Gerente de Projeto_   | Aluno do 7º Periodo de Eng. de Software|
 ---------
