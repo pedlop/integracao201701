@@ -1,7 +1,11 @@
 package com.github.integracao2017.cnes.cnesinterface;
 
 /**
- * Created by gabriel on 08/05/17.
+ * @author gabriel
+ * <p>
+ *     Fabrica de objetos CNES. Com esta classe você poderá instanciar o objeto definidos pela
+ *     interface {@link BarramentoCNES}.
+ * </p>
  */
 public class FabricaCNES {
 
