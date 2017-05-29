@@ -25,4 +25,12 @@ public class CNES implements BarramentoCNES {
         /**Tratamento do xml para retornar o map.*/
         conexao.consultarEstabelecimento(cnes, new EstabelecimentoSaudeServiceParser(c));
     }
+
+    public void detalharVinculacaoProfissional(String cpf, Callback callback) {
+        // TODO implementar método
+    }
+
+    public void pesquisarVinculacaoProfissional(String cpf, Callback callback) {
+        // TODO implementar método 
+    }
 }
