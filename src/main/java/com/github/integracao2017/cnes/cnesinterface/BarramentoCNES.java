@@ -31,7 +31,7 @@ public interface BarramentoCNES {
      * @param callback - Consumer do HashMap, com as chaves definidas
      *                  no {@link VinculacaoProfissionalService}.
      */
-    void detalharVinculacaoProfissional(String cpf/*, String cns, String cnes, String cnpj, String tipoVinc,*/ Callback callback);
+    void detalharVinculacaoProfissional(String cpf/*, String cns, String cnes, String cnpj, String tipoVinc,*/, Callback callback);
     /**
      * @param cpf - Número do CPF do profissional de 11 carateres.
      * @param cns - Número do CNS do profissional de no máximo 15 caracteres.
@@ -43,5 +43,5 @@ public interface BarramentoCNES {
      * @param callback - Consumer do HashMap, com as chaves definidas
      *                  no {@link VinculacaoProfissionalService}.
      */
-    void pesquisarVinculacaoProfissional(String cpf/*, String cns, String cnes, String cnpj, int pagInicial, int qtdRegistrosPag, int qtdTotalRegistros,*/ Callback callback);
+    void pesquisarVinculacaoProfissional(String cpf,/*, String cns, String cnes, String cnpj, int pagInicial, int qtdRegistrosPag, int qtdTotalRegistros,*/ Callback callback);
 }

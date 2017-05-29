@@ -50,7 +50,7 @@ public class ConexaoCNES implements Conexao{
     }
 
     @Override
-    public void consultarEstabelecimento(String cnes, Consumer<String> consumer) {
+    public void consultarEstabelecimento(String cnes, final Consumer<String> consumer) {
         requisicao("url", new Consumer<String>() {
             @Override
             public void accept(String s) {
