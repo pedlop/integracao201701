@@ -4,8 +4,6 @@ package com.github.integracao2017.cnes.implementacao;
 import com.github.integracao2017.cnes.implementacao.SemConexaoExcecao;
 import okhttp3.*;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.function.Consumer;
 
 /**

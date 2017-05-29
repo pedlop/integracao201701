@@ -1,7 +1,5 @@
 package com.github.integracao2017.cnes.cnesinterface;
 
-import java.util.HashMap;
-
 /**
  * @author gabriel
  *         <p>

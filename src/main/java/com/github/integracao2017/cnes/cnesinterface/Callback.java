@@ -1,5 +1,7 @@
 package com.github.integracao2017.cnes.cnesinterface;
 
+import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
+
 import java.util.Map;
 
 /**
@@ -15,5 +17,5 @@ import java.util.Map;
  *         </p>
  */
 public interface Callback {
-    void funcao(Map<String, String> retorno);
+    void funcao(Map<String, Retorno> retorno);
 }

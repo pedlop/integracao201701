@@ -9,7 +9,12 @@ package com.github.integracao2017.cnes.implementacao;
  */
 public class SemConexaoExcecao extends RuntimeException {
 
-    /**Messagem para usuario do component.*/
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**Messagem para usuario do component.*/
     public SemConexaoExcecao(String msg) {
         super(msg);
     }

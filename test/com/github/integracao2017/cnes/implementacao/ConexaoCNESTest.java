@@ -1,4 +1,4 @@
-package com.github.integracao2017.cnes.implementacao.barramento;
+package com.github.integracao2017.cnes.implementacao;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
