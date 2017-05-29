@@ -40,7 +40,7 @@ public abstract  class Servico implements Consumer<String> {
     protected Callback callback;
 
     public Servico(Callback callbackCliente) {
-        mapa = new HashMap<>();
+        mapa = new HashMap<String, Retorno>();
         callback = callbackCliente;
     }
 

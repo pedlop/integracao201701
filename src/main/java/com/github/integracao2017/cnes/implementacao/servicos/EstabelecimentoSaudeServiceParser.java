@@ -160,7 +160,7 @@ public class EstabelecimentoSaudeServiceParser extends Servico {
 							.getChave(), new RetornoString(""));
 					mapa.put(EstabelecimentoSaudeService.MN_GEST_NOME_UF
 							.getChave(), new RetornoString(""));
-					Collection<Telefone> telefones = new ArrayList<>();
+					Collection<Telefone> telefones = new ArrayList<Telefone>();
 					for (int j = 0; j < eElement
 							.getElementsByTagName("ns25:Telefone")
 							.getLength(); j++) {
