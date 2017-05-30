@@ -40,142 +40,240 @@ public class EstabelecimentoSaudeServiceParser extends Servico {
 				Node node = nodeList.item(i);
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) node;
-					mapa.put(EstabelecimentoSaudeService.CODIGO_CNES.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns2:codigo")));
-					mapa.put(
-							EstabelecimentoSaudeService.CODIGO_UNIDADE
-									.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns24:codigo")));
-					mapa.put(
-							EstabelecimentoSaudeService.NOME_FANTASIA
-									.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns25:nomeFantasia")));
-					mapa.put(
-							EstabelecimentoSaudeService.NOME_EMPRESARIAL
-									.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns25:nomeEmpresarial")));
-					mapa.put(EstabelecimentoSaudeService.CNPJ.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.INDENTIFICADOR
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.TIPO_ENDERECO
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.COD_TIPO_LORGADOURO
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.DESC_TIPO_LORGADOURO
-							.getChave(), new RetornoString(""));
-					mapa.put(
-							EstabelecimentoSaudeService.NOME_LORGADOURO
-									.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns25:nomeEmpresarial", "ns11:nomeLogradouro")));
-					mapa.put(
-							EstabelecimentoSaudeService.NUM_ENDERECO.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns25:nomeEmpresarial", "ns11:numero")));
-					mapa.put(
-							EstabelecimentoSaudeService.CMPLMT_ENDERECO
-									.getChave(),
-							new RetornoString(((Element) eElement
-									.getElementsByTagName("ns11:Endereco")
-									.item(0))
-											.getElementsByTagName(
-													"ns11:complemento")
-											.item(0).getTextContent()));
-					mapa.put(EstabelecimentoSaudeService.COD_BAIRRO.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.DESC_BAIRRO.getChave(),
-							new RetornoString(getElement(eElement,
-									"ns11:Endereco", "ns11:Bairro",
-									"ns13:descricaoBairro")));
-					mapa.put(EstabelecimentoSaudeService.NUM_CEP.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns11:Endereco",
-											"ns11:CEP", "ns14:numeroCEP")));
 
-					mapa.put(
-							EstabelecimentoSaudeService.COD_MUNICIPIO
-									.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns11:Endereco",
-											"ns11:CEP", "ns15:codigoMunicipio")));
-					mapa.put(
-							EstabelecimentoSaudeService.NOME_MUNICIPIO
-									.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns11:Endereco", "ns11:Municipio", "ns15:nomeMunicipio")));
-					mapa.put(EstabelecimentoSaudeService.COD_UF.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns11:Endereco",
-											"ns11:Municipio", "ns15:UF", "ns16:codigoUF")));
-					mapa.put(EstabelecimentoSaudeService.SIGLA_UF.getChave(),
-							new RetornoString(getElement(eElement, "ns11:Endereco",
-											"ns11:Municipio", "ns15:UF", "ns16:siglaUF")));
-					mapa.put(EstabelecimentoSaudeService.COD_REGIAO.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.COD_PAIS.getChave(),
-							new RetornoString(""));
-					mapa.put(
-							EstabelecimentoSaudeService.COD_PAIS_ANT.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.NOME_PAIS.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.MUNICIPIO_INTERN
-							.getChave(), new RetornoString(""));
-					mapa.put(
-							EstabelecimentoSaudeService.DATA_ATUALIZACAO
-									.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns25:dataAtualizacao")));
-					mapa.put(EstabelecimentoSaudeService.DIRT_CPF.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.DIRT_NOME.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.DIRT_NOME.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.TIP_UN_COD.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns28:tipoUnidade", "ns28:codigo")));
-					mapa.put(EstabelecimentoSaudeService.TIP_UN_DESC.getChave(),
-							new RetornoString(
-									getElement(eElement, "ns28:tipoUnidade", "ns28:descricao")));
-					mapa.put(EstabelecimentoSaudeService.ESF_ADM_COD.getChave(),
-							new RetornoString(""));
-					mapa.put(
-							EstabelecimentoSaudeService.ESF_ADM_DESC.getChave(),
-							new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.MN_GEST_COD_MUNI
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.MN_GEST_NOME_MUNI
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.MN_GEST_COD_UF
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.MN_GEST_SIGLA_UF
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.MN_GEST_COD_REG
-							.getChave(), new RetornoString(""));
-					mapa.put(EstabelecimentoSaudeService.MN_GEST_NOME_UF
-							.getChave(), new RetornoString(""));
+					parser(EstabelecimentoSaudeService.CODIGO_CNES, eElement,
+								"http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes", "codigo");
+
+					parser(EstabelecimentoSaudeService.CODIGO_UNIDADE, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/codigounidade", "codigo");
+
+					parser(EstabelecimentoSaudeService.NOME_FANTASIA, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "nomeFantasia",
+							"http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico", "Nome");
+
+					parser(EstabelecimentoSaudeService.NOME_EMPRESARIAL, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "nomeEmpresarial",
+							"http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico", "Nome");
+
+					parser(EstabelecimentoSaudeService.CNPJ, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/cnpj", "numeroCNPJ");
+
+					parser(EstabelecimentoSaudeService.INDENTIFICADOR, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "identificador");
+
+					parser(EstabelecimentoSaudeService.TIPO_ENDERECO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "TipoEndereco");
+
+					parser(EstabelecimentoSaudeService.TIPO_ENDERECO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "TipoEndereco");
+
+
+					parser(EstabelecimentoSaudeService.COD_TIPO_LORGADOURO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "TipoLogradouro",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/tipologradouro", "codigoTipoLogradouro");
+
+
+					parser(EstabelecimentoSaudeService.DESC_TIPO_LORGADOURO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "TipoLogradouro",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/tipologradouro", "descricaoTipoLogradouro");
+
+					parser(EstabelecimentoSaudeService.NOME_LORGADOURO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "nomeLogradouro");
+
+					parser(EstabelecimentoSaudeService.NUM_ENDERECO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "numero");
+
+					parser(EstabelecimentoSaudeService.CMPLMT_ENDERECO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "complemento");
+
+					parser(EstabelecimentoSaudeService.COD_BAIRRO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Bairro",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro", "codigoBairro");
+
+					parser(EstabelecimentoSaudeService.COD_BAIRRO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Bairro",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro", "descricaoBairro");
+
+					parser(EstabelecimentoSaudeService.NUM_CEP	, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "CEP",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep", "numeroCEP");
+
+					parser(EstabelecimentoSaudeService.COD_MUNICIPIO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+
+					parser(EstabelecimentoSaudeService.NOME_MUNICIPIO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "nomeMunicipio");
+
+					parser(EstabelecimentoSaudeService.COD_UF, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "codigoUF");
+
+
+					parser(EstabelecimentoSaudeService.SIGLA_UF, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "siglaUF");
+
+					parser(EstabelecimentoSaudeService.COD_REGIAO, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "codigoRegiao");
+
+					parser(EstabelecimentoSaudeService.NOME_UF, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "nomeUF");
+
+					parser(EstabelecimentoSaudeService.COD_PAIS, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Pais",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/pais", "codigoPais");
+
+					parser(EstabelecimentoSaudeService.COD_PAIS_ANT, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Pais",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/pais", "codigoPaisAntigo");
+
+					parser(EstabelecimentoSaudeService.NOME_PAIS, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Pais",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/pais", "nomePais");
+
+
+					parser(EstabelecimentoSaudeService.MUNICIPIO_INTERN, eElement,
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
+							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "municipioInternacional");
+
+					parser(EstabelecimentoSaudeService.DATA_ATUALIZACAO, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "dataAtualizacao");
+
+					parser(EstabelecimentoSaudeService.DIRT_CPF, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/diretor", "CPF",
+						"http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf","numeroCPF");
+
+					parser(EstabelecimentoSaudeService.DIRT_NOME, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/diretor", "nome",
+							"http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto","Nome");
+
+					parser(EstabelecimentoSaudeService.TIP_UN_COD, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade", "tipoUnidade",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade", "codigo");
+
+					parser(EstabelecimentoSaudeService.TIP_UN_DESC, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade", "tipoUnidade",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/tipounidade", "descricao");
+
+					parser(EstabelecimentoSaudeService.ESF_ADM_COD, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/esferaadministrativa", "esferaAdministrativa",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/esferaadministrativa", "codigo");
+
+					parser(EstabelecimentoSaudeService.ESF_ADM_DESC, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/esferaadministrativa", "esferaAdministrativa",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/esferaadministrativa", "descricao");
+
+					parser(EstabelecimentoSaudeService.MN_GEST_COD_MUNI, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "MunicipioGestor",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+
+					parser(EstabelecimentoSaudeService.MN_GEST_NOME_MUNI, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "MunicipioGestor",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "nomeMunicipio");
+
+					parser(EstabelecimentoSaudeService.MN_GEST_COD_UF, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "MunicipioGestor",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "codigoUF");
+
+					parser(EstabelecimentoSaudeService.MN_GEST_COD_UF, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "MunicipioGestor",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "siglaUF");
+
+					parser(EstabelecimentoSaudeService.MN_GEST_COD_REG, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "MunicipioGestor",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "codigoRegiao");
+
+					parser(EstabelecimentoSaudeService.MN_GEST_NOME_UF, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "MunicipioGestor",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "nomeUF");
+
 					Collection<Telefone> telefones = new ArrayList<Telefone>();
-					for (int j = 0; j < eElement
-							.getElementsByTagName("ns25:Telefone")
-							.getLength(); j++) {
+
+					NodeList nodeListTel  = getNameSpace(eElement, "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Telefone");
+
+					for (int j = 0; j < nodeListTel.getLength(); j++) {
+						Element n = (Element) nodeListTel.item(j);
 						Telefone telefone = new Telefone();
-						telefone.setCodTipoTelefone(getElement(eElement.getElementsByTagName(
-										"ns25:Telefone").item(j), "ns18:TipoTelefone", "ns19:codigoTipoTelefone"));
+						telefone.setCodTipoTelefone(
+								parser(n, "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone", "TipoTelefone",
+										"http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone", "codigoTipoTelefone"));
 						telefone.setDescTipoTelefone(
-								getElement(eElement.getElementsByTagName(
-										"ns25:Telefone").item(j), "ns18:TipoTelefone", "ns19:descricaoTipoTelefone"));
-						telefone.setDdTelefone(getElement(eElement,"ns18:DDD"));
-						telefone.setNumTelefone(getElement(eElement,"ns18:numeroTelefone"));
+								parser(n, "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone", "TipoTelefone",
+										"http://servicos.saude.gov.br/schema/corporativo/telefone/v1r1/tipotelefone", "descricaoTipoTelefone"));
+
+						telefone.setDdiTelefone(
+								parser(n, "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone", "DDI")
+						);
+
+						telefone.setDdTelefone(
+								parser(n, "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone", "DDD"));
+
+						telefone.setNumTelefone(
+								parser(n, "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone", "numeroTelefone"));
 						telefones.add(telefone);
 					}
 					mapa.put(EstabelecimentoSaudeService.TELEFONES.getChave(),
 							new RetornoColecao(telefones));
+
+					parser(EstabelecimentoSaudeService.EMAIL_INDENTF, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Email",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/email", "identificador");
+
+					parser(EstabelecimentoSaudeService.EMAIL_DESC, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Email",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/email", "descricaoEmail");
+
+					parser(EstabelecimentoSaudeService.EMAIL_TIPO, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Email",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/email", "tipoEmail");
+
+					parser(EstabelecimentoSaudeService.EMAIL_VALID, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Email",
+							"http://servicos.saude.gov.br/schema/corporativo/v1r2/email", "validado");
+
+					parser(EstabelecimentoSaudeService.LONGINTUDE, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Localizacao",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao", "longitude");
+
+					parser(EstabelecimentoSaudeService.LATITUDE, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Localizacao",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao", "latitude");
+
+					parser(EstabelecimentoSaudeService.GEO_JSON, eElement,
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Localizacao",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/localizacao", "geoJson");
 
 				}
 			}

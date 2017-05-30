@@ -15,6 +15,8 @@ public class Telefone extends Retorno {
 
     private String descTipoTelefone;
 
+    private String ddiTelefone;
+
     private String ddTelefone;
 
     private String numTelefone;
@@ -35,6 +37,13 @@ public class Telefone extends Retorno {
         this.descTipoTelefone = descTipoTelefone;
     }
 
+    public String getDdiTelefone() {
+        return ddiTelefone;
+    }
+
+    public void setDdiTelefone(String ddiTelefone) {
+        this.ddiTelefone = ddiTelefone;
+    }
     public String getDdTelefone() {
         return ddTelefone;
     }

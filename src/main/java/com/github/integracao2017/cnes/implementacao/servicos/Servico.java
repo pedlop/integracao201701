@@ -10,6 +10,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
+import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -56,53 +58,53 @@ public abstract  class Servico implements Consumer<String> {
     public void accept(String xml) {
 
     }
+
+    public void parser(EstabelecimentoSaudeService chave, Element element, String nameSpace, String localName) {
+        mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
+    }
+
+    public void parser(EstabelecimentoSaudeService chave, Element element, String...nameSpaceLocalNameVetor) {
+        Map<String, String> nameSpaceLocalName = new HashMap<>();
+        for(int i = 0; i < nameSpaceLocalNameVetor.length; i += 2) {
+            nameSpaceLocalName.put(nameSpaceLocalNameVetor[i], nameSpaceLocalNameVetor[i + 1]);
+        }
+        mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalName).item(0).getTextContent()));
+    }
+
+    public String parser(Element element, String nameSpace, String localName) {
+        return  getNameSpace(element, nameSpace, localName).item(0).getTextContent();
+    }
+
+    public String parser(Element element, String...nameSpaceLocalNameVetor) {
+        Map<String, String> nameSpaceLocalName = new HashMap<>();
+        for(int i = 0; i < nameSpaceLocalNameVetor.length; i += 2) {
+            nameSpaceLocalName.put(nameSpaceLocalNameVetor[i], nameSpaceLocalNameVetor[i + 1]);
+        }
+        return getNameSpace(element, nameSpaceLocalName).item(0).getTextContent();
+    }
+
+    public NodeList getNameSpace(Element eElement, String nameSpace, String localName) {
+        return eElement.getElementsByTagNameNS(nameSpace, localName);
+    }
+
+    public NodeList getNameSpace(Element element, Map<String, String> nameSpaceLocalName) {
+        NodeList n = null;
+        for(Map.Entry<String, String> entry: nameSpaceLocalName.entrySet()) {
+            n  = getNameSpace(element, entry.getKey(), entry.getValue());
+        }
+        return n;
+    }
     
-    protected String getElement(Node node, String...tags) {
-    	int tamArv = tags.length -1;
-    	String[] tagArv = new String[tamArv];
-    	for (int i = 0; i < (tags.length -1); i++) {
-    		tagArv[i] = tags[i];
-    	}
-    	try {
-        	return castElement(node, tagArv).getElementsByTagName(tags[tags.length-1])
-        		   .item(0).getTextContent();
-    	} catch(NullPointerException e) {
-    		return "";
-    	}
-    }
-
-    /**@param node - Tag raiz.
-     * @param tags - Array de tags sendo que a ultima
-     * tag e a alvo.
-     * @return Element - Tag alvo localizada.*/
-    private Element castElement(Node node, String...tags) {
-        return castElement(node, tags.length, tags);
-    }
-
     /**@param xml - XML de onde sera tirado a lista
      * a partir do no raiz da tag.
-     * @param noRaiz - No raiz.*/
-    protected NodeList getNode(String xml, String noRaiz) throws ParserConfigurationException, IOException, SAXException {
+     * @param nameSpace - No raiz.*/
+    protected NodeList getNode(String xml, String nameSpace) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        dbFactory.setNamespaceAware(true);
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(new InputSource(new ByteArrayInputStream(xml.getBytes("utf-8"))));
         doc.getDocumentElement().normalize();
-        return doc.getElementsByTagName(noRaiz);
+        return doc.getElementsByTagNameNS(nameSpace, "Body");
     }
 
-    /**@param node - No de raiz do xml que deseja-se
-     * pegar uma subtag.
-     * @param tamTags - Tamanho do caminho de tags ate
-     * se chegar a tag alvo.
-     * @param tags - Sequencia de tags ate se chegar a tag alvo.
-     * @return Element - Element da tag alvo.*/
-    private Element castElement(Node node, int tamTags, String...tags) {
-        if (tamTags == 0 ) {
-            return ((Element)  node);
-        }
-        else {
-            tamTags -= tamTags;
-            return castElement(((Element) node).getElementsByTagName(tags[tamTags]).item(0), tamTags, tags);
-        }
-    }
 }
