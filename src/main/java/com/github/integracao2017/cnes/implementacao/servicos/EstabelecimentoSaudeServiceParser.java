@@ -10,7 +10,6 @@ import org.w3c.dom.NodeList;
 import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoColecao;
-import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Telefone;
 
 /**
@@ -34,7 +33,7 @@ public class EstabelecimentoSaudeServiceParser extends Servico {
 	public void accept(String xml) {
 
 		try {
-			NodeList nodeList = this.getNode(xml, "S:Body");
+			NodeList nodeList = this.getNode(xml, "http://www.w3.org/2003/05/soap-envelope");
 
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				Node node = nodeList.item(i);
@@ -66,11 +65,6 @@ public class EstabelecimentoSaudeServiceParser extends Servico {
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "TipoEndereco");
 
-					parser(EstabelecimentoSaudeService.TIPO_ENDERECO, eElement,
-							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
-							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "TipoEndereco");
-
-
 					parser(EstabelecimentoSaudeService.COD_TIPO_LORGADOURO, eElement,
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "TipoLogradouro",
@@ -99,7 +93,7 @@ public class EstabelecimentoSaudeServiceParser extends Servico {
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Bairro",
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro", "codigoBairro");
 
-					parser(EstabelecimentoSaudeService.COD_BAIRRO, eElement,
+					parser(EstabelecimentoSaudeService.DESC_BAIRRO, eElement,
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco",
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Bairro",
 							"http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro", "descricaoBairro");
@@ -204,7 +198,7 @@ public class EstabelecimentoSaudeServiceParser extends Servico {
 							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
 							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "codigoUF");
 
-					parser(EstabelecimentoSaudeService.MN_GEST_COD_UF, eElement,
+					parser(EstabelecimentoSaudeService.MN_GEST_SIGLA_UF, eElement,
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "MunicipioGestor",
 							"http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "UF",
 							"http://servicos.saude.gov.br/schema/corporativo/v1r1/uf", "siglaUF");
