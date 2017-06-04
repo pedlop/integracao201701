@@ -14,7 +14,6 @@ import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -60,37 +59,46 @@ public abstract  class Servico implements Consumer<String> {
     }
 
     public void parser(EstabelecimentoSaudeService chave, Element element, String nameSpace, String localName) {
-        mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
+    	try {
+    		mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
+    	} catch(NullPointerException e) {
+    		mapa.put(chave.getChave(), null);
+    	}
     }
 
     public void parser(EstabelecimentoSaudeService chave, Element element, String...nameSpaceLocalNameVetor) {
-        Map<String, String> nameSpaceLocalName = new HashMap<>();
-        for(int i = 0; i < nameSpaceLocalNameVetor.length; i += 2) {
-            nameSpaceLocalName.put(nameSpaceLocalNameVetor[i], nameSpaceLocalNameVetor[i + 1]);
-        }
-        mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalName).item(0).getTextContent()));
+    	try {
+            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent()));
+    	} catch(NullPointerException e) {
+    		mapa.put(chave.getChave(), null);
+    	}
     }
 
     public String parser(Element element, String nameSpace, String localName) {
-        return  getNameSpace(element, nameSpace, localName).item(0).getTextContent();
+    	try {
+    		return  getNameSpace(element, nameSpace, localName).item(0).getTextContent();
+    	} catch(NullPointerException e) {
+    		return null;
+    	}        
     }
 
     public String parser(Element element, String...nameSpaceLocalNameVetor) {
-        Map<String, String> nameSpaceLocalName = new HashMap<>();
-        for(int i = 0; i < nameSpaceLocalNameVetor.length; i += 2) {
-            nameSpaceLocalName.put(nameSpaceLocalNameVetor[i], nameSpaceLocalNameVetor[i + 1]);
-        }
-        return getNameSpace(element, nameSpaceLocalName).item(0).getTextContent();
+        return getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent();
     }
 
     public NodeList getNameSpace(Element eElement, String nameSpace, String localName) {
         return eElement.getElementsByTagNameNS(nameSpace, localName);
     }
+    
+    public Element getElement(Element eElement, String nameSpace, String localName) {
+    	return (Element) eElement.getElementsByTagNameNS(nameSpace, localName).item(0);
+    }
 
-    public NodeList getNameSpace(Element element, Map<String, String> nameSpaceLocalName) {
+    public NodeList getNameSpace(Element element, String...nameSpaceLocalNameVetor) {
         NodeList n = null;
-        for(Map.Entry<String, String> entry: nameSpaceLocalName.entrySet()) {
-            n  = getNameSpace(element, entry.getKey(), entry.getValue());
+        for(int i = 0; i < nameSpaceLocalNameVetor.length; i += 2) {
+        	n  = getNameSpace(element, nameSpaceLocalNameVetor[i], nameSpaceLocalNameVetor[i + 1]);
+        	element = getElement(element, nameSpaceLocalNameVetor[i], nameSpaceLocalNameVetor[i + 1]);
         }
         return n;
     }
