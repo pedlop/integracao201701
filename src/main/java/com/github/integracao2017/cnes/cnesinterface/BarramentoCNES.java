@@ -44,4 +44,21 @@ public interface BarramentoCNES {
      *                  no {@link VinculacaoProfissionalService}.
      */
     void pesquisarVinculacaoProfissional(String cpf,/*, String cns, String cnes, String cnpj, int pagInicial, int qtdRegistrosPag, int qtdTotalRegistros,*/ Callback callback);
+    /**
+     * Declaração para metodo de consulta dados de estabelecimento
+     * @param numeroCnes - Número do CNES para o estabelecimento (7 digitos)
+     * @param retorno - Consumer do HashMap com as as chaves definidas em {@link CnesService}
+     * */
+    void consultarEstabelecimentoSaude(String numeroCnes, Callback retorno);
+    /**
+     * Declaração para metodo de consulta dados do estabelecimento por município
+     * @param codigoIbge - Código IBGE do municipio que será consultado
+     * @param retorno - Consumer do HashMap com as chaves definidas em {@link CnesService}
+     * */
+    void consultarEstabelecimentoSaudePorMunicipio(String codigoIbge, Callback retorno);
+    /**
+     * @param codigoIbge - Código IBGE do município que será consultado
+     * @param retorno - Consumer do HashMap com as chaves definidas em {@link CnesService}
+     * */
+    void consultarDadosComplementaresEstabelecimentoSaude(String codigoIbge, Callback retorno);
 }
