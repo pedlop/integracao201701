@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
+import com.github.integracao2017.cnes.cnesinterface.ProfissionalSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -59,6 +60,22 @@ public abstract  class Servico implements Consumer<String> {
     }
 
     public void parser(EstabelecimentoSaudeService chave, Element element, String nameSpace, String localName) {
+    	try {
+    		mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
+    	} catch(NullPointerException e) {
+    		mapa.put(chave.getChave(), null);
+    	}
+    }
+
+    public void parser(ProfissionalSaudeService chave, Element element, String...nameSpaceLocalNameVetor) {
+    	try {
+            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent()));
+    	} catch(NullPointerException e) {
+    		mapa.put(chave.getChave(), null);
+    	}
+    }
+    
+    public void parser(ProfissionalSaudeService chave, Element element, String nameSpace, String localName) {
     	try {
     		mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
     	} catch(NullPointerException e) {

@@ -11,7 +11,7 @@ package com.github.integracao2017.cnes.cnesinterface;
 
 public enum ProfissionalSaudeService {
 
-    //Operação: consultarProfissionaisSaude
+    //Operacao: consultarProfissionaisSaude
     /** DATA DE ATUALIZACAO DO REGISTRO - DATA.*/
     PROF_DATA_ATUALIZACAO("PROF_DATA_ATUALIZACAO"),
     /** NOME DO PROFISSIONAL DE SAUDE - TEXTO - MAX 15 CARACTERES.*/
@@ -32,7 +32,7 @@ public enum ProfissionalSaudeService {
     PROF_COD_CBO("PROF_COD_CBO"),
     /** DESCRICAO DO CBO DO PROFISSIONAL - TEXTO - MAX 150 CARACTERES */
     PROF_DESC_CBO("PROF_DESC_CBO"),
-    /** CODIGO DO ESTABELECIMENTO DE SAUDE - NUMÉRICO - MAX 7 CARACTERES */
+    /** CODIGO DO ESTABELECIMENTO DE SAUDE - NUMERICO - MAX 7 CARACTERES */
     PROF_CNES_COD("PROF_CNES_COD"),
     /** NOME FANTASIA DO ESTABELECIMENTO DE SAUDE - TEXTO - MAX 150 CARACTERES */
     PROF_NOME_FANTASIA("PROF_NOME_FANTASIA"),
