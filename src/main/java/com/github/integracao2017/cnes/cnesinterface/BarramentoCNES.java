@@ -61,4 +61,25 @@ public interface BarramentoCNES {
      * @param retorno - Consumer do HashMap com as chaves definidas em {@link CnesService}
      * */
     void consultarDadosComplementaresEstabelecimentoSaude(String codigoIbge, Callback retorno);
+    
+    
+    /**
+     * Declaracao para o método de consulta dos dados de um profissional da saude cadastrado
+     * @param numeroCns - Numero do CNS do profissional de no maximo 15 caracteres.
+     * @param dataAtribuicao
+     * @param tipoCartao
+     * @param manual
+     * @param justificativa manual
+     * @param numeroCPF
+     * @param retorno - Consumer do HashMap com as chaves definidas em {@link CnesService}
+     */
+    void consultarProfissionalSaude(String numeroCns, Callback retorno);
+    
+    /**
+     * Declaracao para o método de consulta dos dados de vários profissionais da saude cadastrado
+     * @param numeroCnes - Numero do CNES para o estabelecimento (texto Max: 7 caracteres)
+     * @param numeroCNPJ - Numero do CNPJ do establecimento (texto Max: 14 caracteres)
+     * @param retorno - Consumer do HashMap com as chaves definidas em {@link CnesService}
+     */
+    void consultarProfissionaisSaude(String numeroCnes, Callback retorno);
 }

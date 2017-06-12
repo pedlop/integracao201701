@@ -14,4 +14,14 @@ public interface Conexao {
      * @param consumer - Consumer<String> que ira
      * tratar a String XML assim que a mesma chegar ao servidor.*/
     void consultarEstabelecimento(String cnes, Consumer<String> consumer);
+    
+    /**@param numeroCns - Codigo numero cns do profissional.
+     * @param consumer - Consumer<String> que ira
+     * tratar a String XML assim que a mesma chegar ao servidor.*/
+    void consultarProfissionalSaude(String numeroCns, Consumer<String> consumer);
+    
+    /**@param numeroCnes - Codigo numero cnes.
+     * @param consumer - Consumer<String> que ira
+     * tratar a String XML assim que a mesma chegar ao servidor.*/
+    void consultarProfissionaisSaude(String numeroCnes, Consumer<String> consumer);
 }

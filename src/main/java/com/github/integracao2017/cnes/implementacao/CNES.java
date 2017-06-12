@@ -47,4 +47,14 @@ public class CNES implements BarramentoCNES {
     public void consultarDadosComplementaresEstabelecimentoSaude(String codigoIbge, Callback retorno) {
         // TODO implementar método
     }
+    
+    @Override
+    public void consultarProfissionalSaude(String numeroCns, Callback retorno){
+    	// TODO implementar método
+    }
+    
+    @Override
+    public void consultarProfissionaisSaude(String numeroCnes, Callback retorno){
+    	// TODO implementar método
+    }
 }

@@ -63,4 +63,34 @@ public class ConexaoCNES implements Conexao{
             }
         });
     }
+    
+    @Override
+    public void consultarProfissionalSaude(String numeroCns, final Consumer<String> consumer) {
+        requisicao("url", new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                /**
+                 * Realizar o parse
+                 *
+                 * */
+                consumer.accept(s);
+
+            }
+        });
+    }
+    
+    @Override
+    public void consultarProfissionaisSaude(String numeroCnes, final Consumer<String> consumer) {
+        requisicao("url", new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                /**
+                 * Realizar o parse
+                 *
+                 * */
+                consumer.accept(s);
+
+            }
+        });
+    }
 }
