@@ -8,7 +8,7 @@ import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.VinculacaoProfissionalService;
 
 /**
- * @author Pedro Victor
+ * @author pedro.lopes
  * @version 1.0.0
  *          <p>
  *          Objetivo classe com a logica para realizar parse das respotas vindas

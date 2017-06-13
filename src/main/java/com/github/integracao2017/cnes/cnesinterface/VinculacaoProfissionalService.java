@@ -1,7 +1,7 @@
 package com.github.integracao2017.cnes.cnesinterface;
 
 /**
- * @author Pedro Victor
+ * @author pedro.lopes
  * <p>
  *     Objetivo: marcar todas as chaves do HashMap
  *     da consulta da vinculacao do profissional de saude.

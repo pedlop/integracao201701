@@ -64,6 +64,34 @@ public class ConexaoCNES implements Conexao{
         });
     }
     
+    public void detalharVinculacaoProfissional(String cpf, final Consumer<String> consumer) {
+    	requisicao("url", new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                /**
+                 * Realizar o parse
+                 *
+                 * */
+                consumer.accept(s);
+
+            }
+        });
+    }
+    
+    public void pesquisarVinculacaoProfissional(String cpf, final Consumer<String> consumer) {
+    	requisicao("url", new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+                /**
+                 * Realizar o parse
+                 *
+                 * */
+                consumer.accept(s);
+
+            }
+        });
+    }
+    
     @Override
     public void consultarProfissionalSaude(String numeroCns, final Consumer<String> consumer) {
         requisicao("url", new Consumer<String>() {

@@ -25,36 +25,39 @@ public class CNES implements BarramentoCNES {
         /**Tratamento do xml para retornar o map.*/
         conexao.consultarEstabelecimento(cnes, new EstabelecimentoSaudeServiceParser(c));
     }
-
+    
+    @Override
     public void detalharVinculacaoProfissional(String cpf, Callback callback) {
-        // TODO implementar método
+        // TODO implementar metodo
     }
-
+    
+    @Override
     public void pesquisarVinculacaoProfissional(String cpf, Callback callback) {
-        // TODO implementar método 
+        // TODO implementar metodo 
     }
+    
     @Override
     public void consultarEstabelecimentoSaude(String numeroCnes, Callback retorno) {
-        // TODO implementar método
+        // TODO implementar metodo
     }
 
     @Override
     public void consultarEstabelecimentoSaudePorMunicipio(String codigoIbge, Callback retorno) {
-        // TODO implementar método
+        // TODO implementar metodo
     }
 
     @Override
     public void consultarDadosComplementaresEstabelecimentoSaude(String codigoIbge, Callback retorno) {
-        // TODO implementar método
+        // TODO implementar metodo
     }
     
     @Override
     public void consultarProfissionalSaude(String numeroCns, Callback retorno){
-    	// TODO implementar método
+    	// TODO implementar metodo
     }
     
     @Override
     public void consultarProfissionaisSaude(String numeroCnes, Callback retorno){
-    	// TODO implementar método
+    	// TODO implementar metodo
     }
 }
