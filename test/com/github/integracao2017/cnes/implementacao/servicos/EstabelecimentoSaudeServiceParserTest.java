@@ -14,9 +14,8 @@ import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
 import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoColecao;
-import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Telefone;
-import com.sun.org.apache.bcel.internal.util.ClassLoader;
+
 
 
 /**
@@ -25,8 +24,9 @@ import com.sun.org.apache.bcel.internal.util.ClassLoader;
  * Classe de teste do parser do servico de consulta
  * de estabelecimento.
  */
-public class EstabelecimentoSaudeServiceParserTest {
+public class EstabelecimentoSaudeServiceParserTest extends ServiceParserTest {
 
+    @SuppressWarnings("unchecked")
     @Test
     public void accept() throws Exception {
         StringBuilder strBuild = new StringBuilder();
@@ -111,7 +111,7 @@ public class EstabelecimentoSaudeServiceParserTest {
         	testNulo(m, EstabelecimentoSaudeService.MN_GEST_NOME_UF);
         	
         	RetornoColecao telefones =  (RetornoColecao) m.get(EstabelecimentoSaudeService.TELEFONES.getChave());
-        	List<Telefone> listaTel = (List<Telefone>) telefones.getColecao();
+            List<Telefone> listaTel = (List<Telefone>) telefones.getColecao();
         	
         	if (!(listaTel.size() == 2))
         		fail();
@@ -169,21 +169,5 @@ public class EstabelecimentoSaudeServiceParserTest {
         Consumer<String> c = new EstabelecimentoSaudeServiceParser(callback);
         c.accept(strBuild.toString());
         assert(true);
-    }
-    
-    private void testNulo(Map<String, Retorno> m, EstabelecimentoSaudeService eNum) {
-    	if (!(m.get(eNum) == null)) {
-    		fail();
-    	}
-    }
-    
-    private void testRetStrgn(Map<String, Retorno> m, EstabelecimentoSaudeService eNum, String conteudo) {
-    	if (!this.getRetorno(m, eNum).getRetorno().replaceAll(" ", "").equals(conteudo.replaceAll(" ", ""))) {
-    		fail();
-    	}
-    }
-    
-    private RetornoString getRetorno(Map<String, Retorno> m, EstabelecimentoSaudeService eNum) {
-    	return ((RetornoString) m.get(eNum.getChave()));
     }
 }
