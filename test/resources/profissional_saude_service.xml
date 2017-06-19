@@ -1,0 +1,21 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+   <S:Header xmlns:S="http://www.w3.org/2003/05/soap-envelope">
+      <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdPABd3ZWJsb2dpYy5hcHAuY25lcy1lYXItMQAAANYAAAAjd2VibG9naWMud29ya2FyZWEuU3RyaW5nV29ya0NvbnRleHQABzEuMy4yLjUAAA==</work:WorkContext>
+   </S:Header>
+   <S:Body xmlns:S="http://www.w3.org/2003/05/soap-envelope">
+      <prof:responseConsultarProfissionalSaude xmlns:prof="http://servicos.saude.gov.br/cnes/v1r0/profissionalsaudeservice">
+         <prof1:ProfissionalSaude xmlns:prof1="http://servicos.saude.gov.br/schema/profissionalsaude/v2r0/profissionalsaude">
+            <prof1:dataAtualizacao>2008-05-26</prof1:dataAtualizacao>
+            <prof1:Nome>
+               <nom:Nome xmlns:nom="http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto">VARCIA MARIA CAMPELO SAMPAIO</nom:Nome>
+            </prof1:Nome>        
+            <prof1:CNS>
+               <cns:numeroCNS xmlns:cns="http://servicos.saude.gov.br/schema/cadsus/v5r0/cns">980016280595043</cns:numeroCNS>
+            </prof1:CNS>
+            <prof1:CPF>
+               <cpf:numeroCPF xmlns:cpf="http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf">02034935322</cpf:numeroCPF>
+            </prof1:CPF>
+         </prof1:ProfissionalSaude>
+      </prof:responseConsultarProfissionalSaude>
+   </S:Body>
+</soap:Envelope>
