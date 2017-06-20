@@ -10,9 +10,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
-import com.github.integracao2017.cnes.cnesinterface.ProfissionalSaudeService;
-import com.github.integracao2017.cnes.cnesinterface.VinculacaoProfissionalService;
+import com.github.integracao2017.cnes.cnesinterface.*;
 import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -20,7 +18,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
 
 /**
@@ -106,6 +103,22 @@ public abstract  class Servico implements Consumer<String> {
     	} catch(NullPointerException e) {
     		mapa.put(chave.getChave(), null);
     	}
+    }
+
+    public void parser(CnesService chave, Element element, String...nameSpaceLocalNameVetor) {
+        try {
+            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent()));
+        } catch(NullPointerException e) {
+            mapa.put(chave.getChave(), null);
+        }
+    }
+
+    public void parser(CnesService chave, Element element, String nameSpace, String localName) {
+        try {
+            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
+        } catch(NullPointerException e) {
+            mapa.put(chave.getChave(), null);
+        }
     }
 
     public String parser(Element element, String nameSpace, String localName) {
