@@ -4,7 +4,8 @@ package com.github.integracao2017.cnes.cnesinterface;
  * @author Rony Nogueira
  * Enum que possui todas as chaves necessárias para o Parser de resposta do CnesService
  */
-public enum CnesService {
+public enum CnesService implements PadraoEnumChave {
+    
     /**
      * Definição das chaves utilizadas pelo CnesService
      * Chaves INCOMPLETAS

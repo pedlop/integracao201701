@@ -3,7 +3,7 @@ package com.github.integracao2017.cnes.cnesinterface;
 /**
  * Created by Lucas Vinicios.
  */
-public enum EquipamentoService {
+public enum EquipamentoService implements PadraoEnumChave {
 
     CODIGO_EQUIPAMENTO("CODIGO_CNES"),
     DESCRICAO_EQUIPAMENTO("CODIGO_UNIDADE"),
