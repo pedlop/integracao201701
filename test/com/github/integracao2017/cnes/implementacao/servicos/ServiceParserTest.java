@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
+import com.github.integracao2017.cnes.cnesinterface.PadraoEnumChave;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
 import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
 
@@ -38,7 +38,7 @@ public abstract class ServiceParserTest {
      *            devera ser null.
      */
     protected void testNulo(Map<String, Retorno> m,
-            EstabelecimentoSaudeService eNum) {
+            PadraoEnumChave eNum) {
         if (!(m.get(eNum) == null)) {
             fail();
         }
@@ -52,7 +52,7 @@ public abstract class ServiceParserTest {
      *            retornam valor.
      */
     protected void testRetStrgn(Map<String, Retorno> m,
-            EstabelecimentoSaudeService eNum, String conteudo) {
+            PadraoEnumChave eNum, String conteudo) {
         if (!this.getRetorno(m, eNum).getRetorno().replaceAll(" ", "")
                 .equals(conteudo.replaceAll(" ", ""))) {
             fail();
@@ -69,7 +69,7 @@ public abstract class ServiceParserTest {
      *         da API.
      */
     protected RetornoString getRetorno(Map<String, Retorno> m,
-            EstabelecimentoSaudeService eNum) {
+            PadraoEnumChave eNum) {
         return ((RetornoString) m.get(eNum.getChave()));
     }
 }

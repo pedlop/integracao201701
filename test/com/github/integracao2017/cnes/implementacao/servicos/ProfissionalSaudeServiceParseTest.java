@@ -1,31 +1,25 @@
 package com.github.integracao2017.cnes.implementacao.servicos;
 
-import static org.junit.Assert.fail;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
 import org.junit.Test;
 
 import com.github.integracao2017.cnes.cnesinterface.Callback;
-import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.ProfissionalSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
-import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoColecao;
-import com.github.integracao2017.cnes.cnesinterface.retorno.Telefone;
 
 /**
- * @author João Henrique
+ * @author Joï¿½o Henrique
  * @version 1.0.0
  * Classe de teste do parser do servico de consulta das informacoes 
- * de um profissional da saúde.
+ * de um profissional da saï¿½de.
  */
 public class ProfissionalSaudeServiceParseTest extends ServiceParserTest {
 
-    @SuppressWarnings("unchecked")
+    
     @Test
     public void accept() throws Exception {
         StringBuilder strBuild = new StringBuilder();

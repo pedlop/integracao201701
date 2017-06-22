@@ -8,7 +8,7 @@ package com.github.integracao2017.cnes.cnesinterface;
  * </p>
  */
 
-public enum VinculacaoProfissionalService {
+public enum VinculacaoProfissionalService implements PadraoEnumChave {
 
     //Operacao: detalharVinculacaoProfissionalSaude
     /** NOME DO PROFISSIONAL DE SAUDE - TEXTO - MAX 150 CARACTERES.*/

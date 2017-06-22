@@ -9,7 +9,7 @@ package com.github.integracao2017.cnes.cnesinterface;
  * </p>
  */
 
-public enum ProfissionalSaudeService {
+public enum ProfissionalSaudeService implements PadraoEnumChave {
 
     //Operacao: consultarProfissionaisSaude
     /** DATA DE ATUALIZACAO DO REGISTRO - DATA.*/

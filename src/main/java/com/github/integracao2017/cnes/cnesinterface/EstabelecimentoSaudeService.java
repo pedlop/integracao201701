@@ -1,17 +1,22 @@
 package com.github.integracao2017.cnes.cnesinterface;
 
 /**
- * @author gabriel
- * <p>
- *     Objetivo marcar todas as chaves do HasMap
- *     da consulta de estabelecimento de saude.
- * </p>
+ * @author  gabriel
+ * @version 1.0.0
+ *         <p>
+ *         Objetivo marcar todas as chaves do HasMap da consulta de
+ *         estabelecimento de saúde. Objetivo marcar todas as chaves do HasMap
+ *         da consulta de estabelecimento de saúde.
+ *         </p>
  */
-public enum EstabelecimentoSaudeService {
+public enum EstabelecimentoSaudeService implements PadraoEnumChave {
 
-    /** CODIGO NUMERICO DE NO MAXIMO 7 CARACTERES.*/
+    /** CÓDIGO NUMÉRICO DE NO MÁXIMO 7 CARACTERES.*/
     CODIGO_CNES("CODIGO_CNES"),
+    
+    /** */
     CODIGO_UNIDADE("CODIGO_UNIDADE"),
+    
     NOME_FANTASIA("NOME_FANTASIA"),
     NOME_EMPRESARIAL("NOME_EMPRESARIAL"),
     CNPJ("CNPJ"),

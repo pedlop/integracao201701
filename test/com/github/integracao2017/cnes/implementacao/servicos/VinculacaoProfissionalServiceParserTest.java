@@ -1,10 +1,8 @@
 package com.github.integracao2017.cnes.implementacao.servicos;
 
-import static org.junit.Assert.fail;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -13,10 +11,6 @@ import org.junit.Test;
 import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.VinculacaoProfissionalService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
-import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoColecao;
-import com.github.integracao2017.cnes.cnesinterface.retorno.RetornoString;
-import com.github.integracao2017.cnes.cnesinterface.retorno.Telefone;
-import com.sun.org.apache.bcel.internal.util.ClassLoader;
 
 
 /**
@@ -25,7 +19,7 @@ import com.sun.org.apache.bcel.internal.util.ClassLoader;
  * Classe de teste do parser do servico de consulta
  * de estabelecimento.
  */
-public class VinculacaoProfissionalServiceParserTest {
+public class VinculacaoProfissionalServiceParserTest extends ServiceParserTest {
 
     @Test
     public void accept() throws Exception {
@@ -84,21 +78,5 @@ public class VinculacaoProfissionalServiceParserTest {
         Consumer<String> c = new VinculacaoProfissionalServiceParser(callback);
         c.accept(strBuild.toString());
         assert(true);
-    }
-    
-    private void testNulo(Map<String, Retorno> m, VinculacaoProfissionalService eNum) {
-    	if (!(m.get(eNum) == null)) {
-    		fail();
-    	}
-    }
-    
-    private void testRetStrgn(Map<String, Retorno> m, VinculacaoProfissionalService eNum, String conteudo) {
-    	if (!this.getRetorno(m, eNum).getRetorno().replaceAll(" ", "").equals(conteudo.replaceAll(" ", ""))) {
-    		fail();
-    	}
-    }
-    
-    private RetornoString getRetorno(Map<String, Retorno> m, VinculacaoProfissionalService eNum) {
-    	return ((RetornoString) m.get(eNum.getChave()));
     }
 }
