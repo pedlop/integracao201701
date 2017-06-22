@@ -57,7 +57,7 @@ public abstract  class Servico implements Consumer<String> {
 
     }
 
-    public void parser(EstabelecimentoSaudeService chave, Element element, String nameSpace, String localName) {
+    public void parser(PadraoEnumChave chave, Element element, String nameSpace, String localName) {
     	try {
     		mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
     	} catch(NullPointerException e) {
@@ -65,7 +65,7 @@ public abstract  class Servico implements Consumer<String> {
     	}
     }
     
-    public void parser(EstabelecimentoSaudeService chave, Element element, String...nameSpaceLocalNameVetor) {
+    public void parser(PadraoEnumChave chave, Element element, String...nameSpaceLocalNameVetor) {
     	try {
             mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent()));
     	} catch(NullPointerException e) {
@@ -73,54 +73,6 @@ public abstract  class Servico implements Consumer<String> {
     	}
     }
     
-    public void parser(ProfissionalSaudeService chave, Element element, String nameSpace, String localName) {
-    	try {
-    		mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
-    	} catch(NullPointerException e) {
-    		mapa.put(chave.getChave(), null);
-    	}
-    }
-    
-    public void parser(ProfissionalSaudeService chave, Element element, String...nameSpaceLocalNameVetor) {
-    	try {
-            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent()));
-    	} catch(NullPointerException e) {
-    		mapa.put(chave.getChave(), null);
-    	}
-    }
-    
-    public void parser(VinculacaoProfissionalService chave, Element element, String...nameSpaceLocalNameVetor) {
-    	try {
-            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent()));
-    	} catch(NullPointerException e) {
-    		mapa.put(chave.getChave(), null);
-    	}
-    }
-    
-    public void parser(VinculacaoProfissionalService chave, Element element, String nameSpace, String localName) {
-    	try {
-    		mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
-    	} catch(NullPointerException e) {
-    		mapa.put(chave.getChave(), null);
-    	}
-    }
-
-    public void parser(CnesService chave, Element element, String...nameSpaceLocalNameVetor) {
-        try {
-            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpaceLocalNameVetor).item(0).getTextContent()));
-        } catch(NullPointerException e) {
-            mapa.put(chave.getChave(), null);
-        }
-    }
-
-    public void parser(CnesService chave, Element element, String nameSpace, String localName) {
-        try {
-            mapa.put(chave.getChave(), new RetornoString(getNameSpace(element, nameSpace, localName).item(0).getTextContent()));
-        } catch(NullPointerException e) {
-            mapa.put(chave.getChave(), null);
-        }
-    }
-
     public String parser(Element element, String nameSpace, String localName) {
     	try {
     		return  getNameSpace(element, nameSpace, localName).item(0).getTextContent();
