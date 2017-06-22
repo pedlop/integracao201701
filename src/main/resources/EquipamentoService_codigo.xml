@@ -1,0 +1,10 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:equ="http://servicos.saude.gov.br/cnes/v1r0/equipamentoservice" xmlns:cod="http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes">
+<soap:Header/>
+   <soap:Body>
+      <equ:requestConsultarEquipamentos>
+         <cod:CodigoCNES>
+            <cod:codigo>?</cod:codigo>
+         </cod:CodigoCNES>
+      </equ:requestConsultarEquipamentos>
+   </soap:Body>
+</soap:Envelope>
