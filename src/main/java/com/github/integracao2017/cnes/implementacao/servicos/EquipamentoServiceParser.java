@@ -44,7 +44,7 @@ public class EquipamentoServiceParser extends Servico {
 
 					parser(EquipamentoService.CODIGO_TIPOEQUIPAMENTO, eElement,
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/equipamento", "Equipamento",
-							"http://servicos.saude.gov.br/schema/cnes/v1r0/equipamento", "tipoEquipamento",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/tipoequipamento", "tipoEquipamento",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/tipoequipamento", "codigo");
 
 					parser(EquipamentoService.DESCRICAO_TIPOEQUIPAMENTO, eElement,
