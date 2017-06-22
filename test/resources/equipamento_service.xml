@@ -1,0 +1,26 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:equ="http://servicos.saude.gov.br/cnes/v1r0/equipamentoservice" xmlns:equ1="http://servicos.saude.gov.br/schema/cnes/v1r0/equipamento" xmlns:tip="http://servicos.saude.gov.br/schema/cnes/v1r0/tipoequipamento">
+    <soap:Header/>
+    <soap:Body>
+        <equ:responseConsultarEquipamentos>
+            <!--Zero or more repetitions:-->
+            <equ1:Equipamento>
+                <equ1:codigo>2522</equ1:codigo>
+                <equ1:descricao>TESTE 1</equ1:descricao>
+                <tip:tipoEquipamento>
+                    <tip:codigo>52</tip:codigo>
+                    <tip:descricao>TESTE</tip:descricao>
+                </tip:tipoEquipamento>
+                <!--Optional:-->
+                <equ1:destinacao>AMBOS</equ1:destinacao>
+                <!--Optional:-->
+                <equ1:quantidadeEquipamento>10</equ1:quantidadeEquipamento>
+                <!--Optional:-->
+                <equ1:quantidadeUso>25</equ1:quantidadeUso>
+                <!--Optional:-->
+                <equ1:TpSUS>
+                    <equ1:codigo>100</equ1:codigo>
+                </equ1:TpSUS>
+            </equ1:Equipamento>
+        </equ:responseConsultarEquipamentos>
+    </soap:Body>
+</soap:Envelope>
