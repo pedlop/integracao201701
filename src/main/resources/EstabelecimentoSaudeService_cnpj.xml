@@ -1,0 +1,13 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:est="http://servicos.saude.gov.br/cnes/v1r0/estabelecimentosaudeservice" xmlns:fil="http://servicos.saude.gov.br/wsdl/mensageria/v1r0/filtropesquisaestabelecimentosaude" xmlns:cod="http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes" xmlns:cnpj="http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/cnpj">
+   <soap:Header/>
+   <soap:Body>
+      <est:requestConsultarEstabelecimentoSaude>
+         <fil:FiltroPesquisaEstabelecimentoSaude>
+            <!--Optional:-->
+            <cnpj:CNPJ>
+               <cnpj:numeroCNPJ>?</cnpj:numeroCNPJ>
+            </cnpj:CNPJ>
+         </fil:FiltroPesquisaEstabelecimentoSaude>
+      </est:requestConsultarEstabelecimentoSaude>
+   </soap:Body>
+</soap:Envelope>

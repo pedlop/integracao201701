@@ -1,0 +1,13 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:est="http://servicos.saude.gov.br/cnes/v1r0/estabelecimentosaudeservice" xmlns:fil="http://servicos.saude.gov.br/wsdl/mensageria/v1r0/filtropesquisaprecadastrocnes" xmlns:cod="http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes">
+   <soap:Header/>
+   <soap:Body>
+      <est:requestConsultarPrecadastroCNES>
+         <fil:FiltroPesquisaPrecadastroCnes>
+            <!--Optional:-->
+            <cod:CodigoCNES>
+               <cod:codigo>?</cod:codigo>
+            </cod:CodigoCNES>
+         </fil:FiltroPesquisaPrecadastroCnes>
+      </est:requestConsultarPrecadastroCNES>
+   </soap:Body>
+</soap:Envelope>
