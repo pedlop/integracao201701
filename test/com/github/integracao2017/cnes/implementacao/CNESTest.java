@@ -259,6 +259,53 @@ public class CNESTest {
         cnes.consultarPreCadastroCNESSituacao("E", callback);
     }
     
+    @Test(expected=IllegalArgumentException.class)
+    public void testConsultarEquipamentoCod() {
+        cnes = new CNES();
+        cnes.consultarEquipamentoCod(null, null);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConsultarEquipamentoCod1() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.consultarEquipamentoCod(null, callback);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConsultarEquipamentoCod2() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.consultarEquipamentoCod("a", callback);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConsultarEquipamentoCod3() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.consultarEquipamentoCod("1", callback);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testConsultarEquipamentoCod4() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.consultarEquipamentoCod("12345678", callback);
+    }
+    
+    @Test(expected=NullPointerException.class)
+    public void testConsultarEquipamentoCod5() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.consultarEquipamentoCod("1234567", callback);
+    }
+    
+    @Test()
+    public void testConsultarEquipamentoCod6() {
+        cnes = carregaCNES(new CNES());
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.consultarEquipamentoCod("1234567", callback);
+    }
 
 
     /**
