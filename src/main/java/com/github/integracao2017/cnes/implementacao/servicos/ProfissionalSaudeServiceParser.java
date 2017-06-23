@@ -8,11 +8,10 @@ import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.ProfissionalSaudeService;
  
 /**
- * @author João Henrique
+ * @author Joao Henrique
  * @version 1.0.0
- *          <p>
  *          Esta classe tem como objetivo realizar o parse das respotas vindas
- *          do servico de consulta das informações de um profissional/profissionais.
+ *          do servico de consulta das informacoes de um profissional.
  */
 public class ProfissionalSaudeServiceParser extends Servico {
  

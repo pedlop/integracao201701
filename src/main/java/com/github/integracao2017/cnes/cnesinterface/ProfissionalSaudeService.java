@@ -1,17 +1,14 @@
 package com.github.integracao2017.cnes.cnesinterface;
 
 /**
- * @author João Henrique
- * <p>
+ * @author Joao Henrique
  *     Objetivo: marcar todas as chaves do HashMap
- *     da consulta das informações do(s) profissional(is)
- *     de saúde cadastrado no CNES.
- * </p>
+ *     da consulta das informacoes do profissional
+ *     de saude cadastrado no CNES.
  */
 
 public enum ProfissionalSaudeService implements PadraoEnumChave {
 
-    //Operacao: consultarProfissionaisSaude
     /** DATA DE ATUALIZACAO DO REGISTRO - DATA.*/
     PROF_DATA_ATUALIZACAO("PROF_DATA_ATUALIZACAO"),
     /** NOME DO PROFISSIONAL DE SAUDE - TEXTO - MAX 15 CARACTERES.*/
