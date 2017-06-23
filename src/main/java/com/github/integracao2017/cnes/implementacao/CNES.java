@@ -10,10 +10,12 @@ import java.util.stream.Collectors;
 import com.github.integracao2017.cnes.cnesinterface.BarramentoCNES;
 import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.Conexao;
+import com.github.integracao2017.cnes.implementacao.servicos.EquipamentoServiceParser;
 import com.github.integracao2017.cnes.implementacao.servicos.EstabelecimentoSaudeServiceParser;
 
 /**
  * Created by gabriel on 08/05/17.
+ * Edited by lucas on 23/06/17
  */
 public class CNES implements BarramentoCNES {
 
@@ -39,6 +41,20 @@ public class CNES implements BarramentoCNES {
                         + " teve a URL passada como nula.");
         }
         this.urls = urls;
+    }
+    
+    @Override
+    public void consultarEquipamentoCod(String cnes, Callback c) {
+        if (cnes == null || c == null || cnes.length() != 7
+                || REGEX_SO_NUMEROS.matcher(cnes).matches()) {
+            throw new IllegalArgumentException("CÛdigo CNES utilizado para consulta"
+                    + "; TIPO: Texto; TAM: 7.");
+        }
+
+        /** Tratamento do xml para retornar o map. */
+        this.conexao.requisicao(urls.get("ConsultarEquipamento"),
+                montaConsultarEquipamento(cnes),
+                new EquipamentoServiceParser(c));
     }
 
     @Override
@@ -149,6 +165,8 @@ public class CNES implements BarramentoCNES {
     private static final Pattern REGEX_SO_NUMEROS = Pattern.compile(".*\\D.*",
             Pattern.CASE_INSENSITIVE);
 
+    private String EquipamentoService_codigo;
+    
     private String EstabelecimentoSaudeService_cnpj;
 
     private String EstabelecimentoSaudeService_codigo;
@@ -209,6 +227,23 @@ public class CNES implements BarramentoCNES {
                     "<fil:situacao>?</fil:situacao>",
                     "<fil:situacao>" + parametro + "</fil:situacao>");
         }
+    }
+    
+    /**
+     * @param opcao
+     *            - 1 c√≥digo CNES
+     * @param parametro
+     *            a ser inserido no xml de request.
+     * @return xml de request montado.
+     */
+    private String montaConsultarEquipamento(String parametro) {
+    	if (EquipamentoService_codigo == null)
+    		EquipamentoService_codigo = buscaArquivoRequest(
+    				"EquipamentoService_codigo.xml");
+
+    	return EquipamentoService_codigo.replace(
+    			"<cod:codigo>?</cod:codigo>",
+    			"<cod:codigo>" + parametro + "</cod:codigo>");
     }
 
     /**

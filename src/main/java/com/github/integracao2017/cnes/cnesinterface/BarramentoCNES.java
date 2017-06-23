@@ -47,6 +47,17 @@ public interface BarramentoCNES {
      *             - Caso alguma chave de url seja passada como nula.
      */
     void configuraURL(Map<String, String> urls) throws IllegalArgumentException;
+    
+    /**
+     * EquipamentoService
+     * 
+     * @param cnes
+     *            - Código CNES utilizado para consulta, tamanho 7 só números.
+     * @param callback
+     *            - Consumer do HashMap, com as chaves definidas no
+     *            {@link EquipamentoService}.
+     */
+    void consultarEquipamentoCod(String cnes, Callback callback);
 
     /**
      * EstabelecimentoSaudeService

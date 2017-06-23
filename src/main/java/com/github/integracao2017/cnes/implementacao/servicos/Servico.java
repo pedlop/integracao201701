@@ -22,6 +22,7 @@ import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
 
 /**
  * @author  gabriel
+ * @author lucas
  * @version 1.0.0
  *
  * Implementacao gerenerica de servico com todos os metodos
