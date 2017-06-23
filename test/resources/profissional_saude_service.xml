@@ -8,13 +8,69 @@
             <prof1:dataAtualizacao>2008-05-26</prof1:dataAtualizacao>
             <prof1:Nome>
                <nom:Nome xmlns:nom="http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto">VARCIA MARIA CAMPELO SAMPAIO</nom:Nome>
-            </prof1:Nome>        
+            </prof1:Nome>
             <prof1:CNS>
                <cns:numeroCNS xmlns:cns="http://servicos.saude.gov.br/schema/cadsus/v5r0/cns">980016280595043</cns:numeroCNS>
+               <cns:dataAtribuicao xmlns:cns="http://servicos.saude.gov.br/schema/cadsus/v5r0/cns">2017-01-01</cns:dataAtribuicao>
+               <cns:tipoCartao xmlns:cns="http://servicos.saude.gov.br/schema/cadsus/v5r0/cns">D</cns:tipoCartao>	
+               <cns:manual xmlns:cns="http://servicos.saude.gov.br/schema/cadsus/v5r0/cns">TRUE</cns:manual>
+               <cns:justificativaManual xmlns:cns="http://servicos.saude.gov.br/schema/cadsus/v5r0/cns">TESTE JUSTIFICATIVA</cns:justificativaManual>
             </prof1:CNS>
             <prof1:CPF>
                <cpf:numeroCPF xmlns:cpf="http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf">02034935322</cpf:numeroCPF>
             </prof1:CPF>
+            <prof1:CBO>
+               <cbo:codigoCBO xmlns:cbo="http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo">123456</cbo:codigoCBO>
+               <cbo:descricaoCBO xmlns:cbo="http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo">TESTE CBO</cbo:descricaoCBO>
+            </prof1:CBO>
+            <prof1:CNES>
+               <cod:CodigoCNES xmlns:cod="http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes">
+                  <cod:codigo>1234567</cod:codigo>
+               </cod:CodigoCNES>
+               <dad:NomeFantasia xmlns:dad="http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosestabelecimento">
+                  <nom1:Nome xmlns:nom1="http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico">TESTE NOME FANTASIA</nom1:Nome>
+               </dad:NomeFantasia>
+            </prof1:CNES>
+            <prof1:Email>
+               <ema:identificador xmlns:ema="http://servicos.saude.gov.br/schema/corporativo/v1r2/email">1</ema:identificador>
+               <ema:descricaoEmail xmlns:ema="http://servicos.saude.gov.br/schema/corporativo/v1r2/email">EMAIL EMAIL</ema:descricaoEmail>
+               <ema:tipoEmail xmlns:ema="http://servicos.saude.gov.br/schema/corporativo/v1r2/email">A</ema:tipoEmail>
+               <ema:validado xmlns:ema="http://servicos.saude.gov.br/schema/corporativo/v1r2/email">FALSE</ema:validado>
+            </prof1:Email>
+            <prof1:Endereco>
+               <end:identificador xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">1</end:identificador>
+               <end:TipoEndereco xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">B</end:TipoEndereco>
+               <end:TipoLogradouro xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">
+                  <tip:codigoTipoLogradouro xmlns:tip="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/tipologradouro">12</tip:codigoTipoLogradouro>
+                  <tip:descricaoTipoLogradouro xmlns:tip="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/tipologradouro">DESCRICAO LOGRADOURO</tip:descricaoTipoLogradouro>
+               </end:TipoLogradouro>
+               <end:nomeLogradouro xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">NOME LOGRADOURO</end:nomeLogradouro>
+               <end:numero xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">TESTE NUM</end:numero>
+               <end:complemento xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">TESTE COMPLEMENTO</end:complemento>
+               <end:Bairro xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">
+                  <bair:codigoBairro xmlns:bair="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro">4545</bair:codigoBairro>
+                  <bair:descricaoBairro xmlns:bair="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/bairro">DESCRICAO BAIRRO</bair:descricaoBairro>
+               </end:Bairro>
+               <end:CEP xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">
+                  <cep:numeroCEP xmlns:cep="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r1/cep">74343221</cep:numeroCEP>
+               </end:CEP>
+               <end:Municipio xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">
+                  <mun:codigoMunicipio xmlns:mun="http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio">1234</mun:codigoMunicipio>
+                  <mun:nomeMunicipio xmlns:mun="http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio">TESTE NOME</mun:nomeMunicipio>
+                  <mun:UF xmlns:mun="http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio">
+                     <uf:codigoUF xmlns:uf="http://servicos.saude.gov.br/schema/corporativo/v1r1/uf">GO</uf:codigoUF>
+                     <uf:siglaUF xmlns:uf="http://servicos.saude.gov.br/schema/corporativo/v1r1/uf">GO</uf:siglaUF>
+                     <uf:codigoRegiao xmlns:uf="http://servicos.saude.gov.br/schema/corporativo/v1r1/uf">GOGO</uf:codigoRegiao>
+                     <uf:nomeUF xmlns:uf="http://servicos.saude.gov.br/schema/corporativo/v1r1/uf">GOIAS</uf:nomeUF>
+                  </mun:UF>
+               </end:Municipio>
+               <end:Pais xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">
+                  <pais:codigoPais xmlns:pais="http://servicos.saude.gov.br/schema/corporativo/v1r2/pais">123</pais:codigoPais>
+                  <pais:codigoPaisAntigo xmlns:pais="http://servicos.saude.gov.br/schema/corporativo/v1r2/pais">321</pais:codigoPaisAntigo>
+                  <pais:nomePais xmlns:pais="http://servicos.saude.gov.br/schema/corporativo/v1r2/pais">BRASIL</pais:nomePais>
+               </end:Pais>
+               <end:municipioInternacional xmlns:end="http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco">BRASIL</end:municipioInternacional>
+            </prof1:Endereco>
          </prof1:ProfissionalSaude>
       </prof:responseConsultarProfissionalSaude>
    </S:Body>

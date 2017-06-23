@@ -12,10 +12,10 @@ import com.github.integracao2017.cnes.cnesinterface.ProfissionalSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
 
 /**
- * @author Jo�o Henrique
+ * @author JoAo Henrique
  * @version 1.0.0
  * Classe de teste do parser do servico de consulta das informacoes 
- * de um profissional da sa�de.
+ * de um profissional da saUde.
  */
 public class ProfissionalSaudeServiceParseTest extends ServiceParserTest {
 
@@ -27,79 +27,79 @@ public class ProfissionalSaudeServiceParseTest extends ServiceParserTest {
                 Paths.get(ClassLoader.getSystemResource("profissional_saude_service.xml").toURI())
         ).stream().forEach(strBuild::append);
         Callback callback = (Map<String, Retorno> m) -> {
-        	testNulo(m, ProfissionalSaudeService.PROF_DATA_ATUALIZACAO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_DATA_ATUALIZACAO,"2008-05-26");
         	
         	testRetStrgn(m, ProfissionalSaudeService.PROF_NOME,"VARCIA MARIA CAMPELO SAMPAIO");
         	
         	testRetStrgn(m, ProfissionalSaudeService.PROF_CNS_NUM,"980016280595043");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_CNS_DATA_ATRIB);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_CNS_DATA_ATRIB,"2017-01-01");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_CNS_TIPO_CARTAO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_CNS_TIPO_CARTAO,"D");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_CNS_MANUAL);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_CNS_MANUAL,"TRUE");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_CNS_JUST_MANUAL);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_CNS_JUST_MANUAL,"TESTE JUSTIFICATIVA");
         	
         	testRetStrgn(m, ProfissionalSaudeService.PROF_CPF,"02034935322");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_CBO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_CBO,"123456");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_DESC_CBO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_DESC_CBO,"TESTE CBO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_CNES_COD);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_CNES_COD,"1234567");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_NOME_FANTASIA);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_NOME_FANTASIA,"TESTE NOME FANTASIA");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_IDENTIFICADOR_EMAIL);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_IDENTIFICADOR_EMAIL,"1");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_DESC_EMAIL);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_DESC_EMAIL,"EMAIL EMAIL");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_TIPO_EMAIL);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_TIPO_EMAIL,"A");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_EMAIL_VALIDADO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_EMAIL_VALIDADO,"FALSE");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_IDENTIF_ENDERECO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_IDENTIF_ENDERECO,"1");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_TIPO_ENDERECO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_TIPO_ENDERECO,"B");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_TIPO_LOGRADOURO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_TIPO_LOGRADOURO,"12");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_DESC_TIPO_LOGRADOURO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_DESC_TIPO_LOGRADOURO,"DESCRICAO LOGRADOURO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_NOME_LOGRADOURO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_NOME_LOGRADOURO,"NOME LOGRADOURO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_NUM_LOGRADOURO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_NUM_LOGRADOURO,"TESTE NUM");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COMPLEMENTO_LOGRADOURO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COMPLEMENTO_LOGRADOURO,"TESTE COMPLEMENTO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_CODIGO_BAIRRO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_CODIGO_BAIRRO,"4545");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_DESC_BAIRRO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_DESC_BAIRRO,"DESCRICAO BAIRRO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_CEP);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_CEP,"74343221");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_MUNICIPIO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_MUNICIPIO,"1234");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_NOME_MUNICIPIO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_NOME_MUNICIPIO,"TESTE NOME");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_UF);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_UF,"GO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_SIGLA_UF);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_SIGLA_UF,"GO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_REGIAO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_REGIAO,"GOGO");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_NOME_UF);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_NOME_UF,"GOIAS");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_PAIS);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_PAIS,"123");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_COD_PAIS_ANTIGO);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_COD_PAIS_ANTIGO,"321");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_NOME_PAIS);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_NOME_PAIS,"BRASIL");
         	
-        	testNulo(m, ProfissionalSaudeService.PROF_MUNICIPIO_INTERNACIONAL);
+        	testRetStrgn(m, ProfissionalSaudeService.PROF_MUNICIPIO_INTERNACIONAL,"BRASIL");
         };
-        Consumer<String> c = new EstabelecimentoSaudeServiceParser(callback);
+        Consumer<String> c = new ProfissionalSaudeServiceParser(callback);
         c.accept(strBuild.toString());
         assert(true);
     }
