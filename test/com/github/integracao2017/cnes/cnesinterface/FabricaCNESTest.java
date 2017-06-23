@@ -33,7 +33,14 @@ public class FabricaCNESTest {
             // TODO Auto-generated method stub
 
         }
+        
+        @Override
+        public void consultarEquipamentoCod(String cnes,
+                Callback callback) {
+            // TODO Auto-generated method stub
 
+        }
+        
         @Override
         public void consultarEstabelecimentoCod(String cnes,
                 Callback callback) {
