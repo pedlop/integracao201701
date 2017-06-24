@@ -15,7 +15,7 @@ import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
  * @author lucas
  * @version 1.0.0
  * Classe de teste do parser do servico de consulta
- * de equipamento.
+ * de leito.
  */
 public class LeitoServiceParserTest extends ServiceParserTest {
 
