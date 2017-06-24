@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.LeitoService;
-import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
 
 /**
@@ -18,7 +17,7 @@ import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
  * Classe de teste do parser do servico de consulta
  * de equipamento.
  */
-public class EquipamentoServiceParserTest extends ServiceParserTest {
+public class LeitoServiceParserTest extends ServiceParserTest {
 
     @Test
     public void accept() throws Exception {
