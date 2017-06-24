@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.EquipamentoService;
-import com.github.integracao2017.cnes.cnesinterface.EstabelecimentoSaudeService;
 import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
 
 /**

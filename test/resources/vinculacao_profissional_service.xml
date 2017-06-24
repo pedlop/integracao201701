@@ -1,0 +1,83 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" 
+				  xmlns:vin="http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice" 
+				  xmlns:vin1="http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao" 
+				  xmlns:dad="http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional" 
+				  xmlns:nom="http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto" 
+				  xmlns:cpf="http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf" 
+				  xmlns:cns="http://servicos.saude.gov.br/schema/cadsus/v5r0/cns" 
+				  xmlns:cod="http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes" 
+				  xmlns:dad1="http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosestabelecimento" 
+				  xmlns:nom1="http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico" 
+				  xmlns:vin2="http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype" 
+				  xmlns:pag="http://servicos.saude.gov.br/wsdl/mensageria/v1/paginacao">
+   <soap:Header/>
+   <soap:Body>
+      <vin:ResponseVinculacaos>
+         <!--Optional:-->
+         <vin1:Vinculacaos>
+            <!--Zero or more repetitions:-->
+            <vin1:Vinculacao>
+               <vin1:Profissional>
+                  <dad:Nome>
+                     <nom:Nome>JOSE MARIA DA SILVA</nom:Nome>
+                  </dad:Nome>
+                  <dad:CPF>
+                     <cpf:numeroCPF>65311064250</cpf:numeroCPF>
+                  </dad:CPF>
+                  <!--1 or more repetitions:-->
+                  <dad:CNS>
+                     <cns:numeroCNS>007</cns:numeroCNS>
+                     <!--Optional:-->
+                     <cns:dataAtribuicao>12-12-2012</cns:dataAtribuicao>
+                     <!--Optional:-->
+                     <cns:tipoCartao>D</cns:tipoCartao>
+                     <!--Optional:-->
+                     <cns:manual>TRUE</cns:manual>
+                     <!--Optional:-->
+                     <cns:justificativaManual>O CARTAO FOI ADICIONADO DEVIDO A SOLICITACAO DO CHEFE</cns:justificativaManual>
+                  </dad:CNS>
+               </vin1:Profissional>
+               <vin1:Estabelecimento>
+                  <cod:CodigoCNES>
+                     <cod:codigo>2530031</cod:codigo>
+                  </cod:CodigoCNES>
+                  <!--Optional:-->
+                  <dad1:NomeFantasia>
+                     <nom1:Nome>HOSPITAL DE URGENCIAS DA VILA AMERICA</nom1:Nome>
+                  </dad1:NomeFantasia>
+               </vin1:Estabelecimento>
+               <vin1:indVinculacao>010300</vin1:indVinculacao>
+               <vin1:codigoModVinculo>1981</vin1:codigoModVinculo>
+               <vin1:desCodigoModVinculo>PESSOAL RESPONSAVEL PELO ATENDIMENTO 1</vin1:desCodigoModVinculo>
+               <vin1:codigoTipoModVinculo>2001</vin1:codigoTipoModVinculo>
+               <vin1:desTipoCodigoModVinculo>VINCULO A PARTIR DO SECULO ATUAL</vin1:desTipoCodigoModVinculo>
+               <vin1:codigoSubTipoModVinculo>2011</vin1:codigoSubTipoModVinculo>
+               <vin1:desSubTipoCodigoModVinculo>REALIZADA ATUALIZACAO DO PROFISSIONAL</vin1:desSubTipoCodigoModVinculo>
+               <!--Optional:-->
+               <vin1:CBOs>
+                  <!--1 or more repetitions:-->
+                  <vin2:CBO>
+                     <vin2:codigoCBO>7471</vin2:codigoCBO>
+                     <!--Optional:-->
+                     <vin2:descricaoCBO>UTIL PARA DETERMINADO CASO</vin2:descricaoCBO>
+                     <!--Optional:-->
+                     <vin2:qtCargaHorariaAmbulatotial>20</vin2:qtCargaHorariaAmbulatotial>
+                     <!--Optional:-->
+                     <vin2:qtCargaHorariaOutros>10</vin2:qtCargaHorariaOutros>
+                     <!--Optional:-->
+                     <vin2:qtCargaHorariaHospSus>15</vin2:qtCargaHorariaHospSus>
+                     <vin2:comptInicio>30-03-2012</vin2:comptInicio>
+                     <vin2:comptFin>07-04-2016</vin2:comptFin>
+                  </vin2:CBO>
+               </vin1:CBOs>
+            </vin1:Vinculacao>
+         </vin1:Vinculacaos>
+         <Paginacao>
+            <pag:registroInicial>1</pag:registroInicial>
+            <pag:quantidadeRegistros>100</pag:quantidadeRegistros>
+            <!--Optional:-->
+            <pag:totalRegistros>100</pag:totalRegistros>
+         </Paginacao>
+      </vin:ResponseVinculacaos>
+   </soap:Body>
+</soap:Envelope>

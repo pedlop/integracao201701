@@ -35,110 +35,186 @@ public class VinculacaoProfissionalServiceParser extends Servico {
 					Element eElement = (Element) node;
 
 					parser(VinculacaoProfissionalService.PROF_NOME, eElement,
-							//"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacao",
-							//"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
-							//"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Profissional",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional", "Nome",
 							"http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto", "Nome");
 
 					parser(VinculacaoProfissionalService.PROF_CPF, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Profissional",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional", "CPF",
 							"http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf", "numeroCPF");
 
 					parser(VinculacaoProfissionalService.PROF_CNS_NUM, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Profissional",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional", "CNS",
 							"http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "numeroCNS");
 
 					parser(VinculacaoProfissionalService.PROF_CNS_DATA_ATRIB, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Profissional",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional", "CNS",
 							"http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "dataAtribuicao");
 
 					parser(VinculacaoProfissionalService.PROF_CNS_TIPO_CARTAO, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Profissional",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional", "CNS",
 							"http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "tipoCartao");
 
 					parser(VinculacaoProfissionalService.PROF_CNS_MANUAL, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Profissional",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional", "CNS",
 							"http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "manual");
 
 					parser(VinculacaoProfissionalService.PROF_CNS_JUST_MANUAL, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Profissional",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosprofissional", "CNS",
 							"http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "justificativaManual");
 
 					parser(VinculacaoProfissionalService.CODIGO_CNES, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Estabelecimento",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes", "CodigoCNES",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/codigocnes", "codigo");
 
-
 					parser(VinculacaoProfissionalService.NOME_FANTASIA, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Estabelecimento",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/dadosbasicosestabelecimento", "NomeFantasia",
 							"http://servicos.saude.gov.br/schema/corporativo/pessoajuridica/v1r0/nomejuridico", "Nome");
 
 					parser(VinculacaoProfissionalService.VINCULACAO_IND, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "indVinculacao");
 
 					parser(VinculacaoProfissionalService.VINCULO_COD_MOD, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "codigoModVinculo");
 
 					parser(VinculacaoProfissionalService.VINCULO_COD_MOD_DESC, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "desCodigoModVinculo");
 
 					parser(VinculacaoProfissionalService.VINCULO_COD_MOD_TIPO, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "codigoTipoModVinculo");
 
 					parser(VinculacaoProfissionalService.VINCULO_COD_MOD_TIPO_DESC, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "desTipoCodigoModVinculo");
 
 					parser(VinculacaoProfissionalService.VINCULO_COD_MOD_SUB_TIPO	, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "codigoSubTipoModVinculo");
 
 					parser(VinculacaoProfissionalService.VINCULO_COD_MOD_SUB_TIPO_DESC, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "desSubTipoCodigoModVinculo");
 
 					parser(VinculacaoProfissionalService.CBO_COD, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "CBOs",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "CBO",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "codigoCBO");
 
 					parser(VinculacaoProfissionalService.CBO_DESC, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "CBOs",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "CBO",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "descricaoCBO");
 
-
-					parser(VinculacaoProfissionalService.QTD_CARGA_HR_AMUBULATOTIAL, eElement,
+					parser(VinculacaoProfissionalService.QTD_CARGA_HR_AMBULATORIAL, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "CBOs",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "CBO",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "qtCargaHorariaAmbulatotial");
 
 					parser(VinculacaoProfissionalService.QTD_CARGA_HR_OUTROS, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "CBOs",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "CBO",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "qtCargaHorariaOutros");
 
 					parser(VinculacaoProfissionalService.QTD_CARGA_HR_HOSP_SUS, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "CBOs",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "CBO",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "qtCargaHorariaHospSus");
 
 					parser(VinculacaoProfissionalService.COMPT_INICIO, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "CBOs",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "CBO",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "comptInicio");
 
 					parser(VinculacaoProfissionalService.COMPT_FIM, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacaos",
+							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "Vinculacao",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacao", "CBOs",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "CBO",
 							"http://servicos.saude.gov.br/schema/cnes/v1r0/vinculacaocbotype", "comptFin");
+					
+					parser(VinculacaoProfissionalService.PAG_POS_INICIAL_REGISTRO, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/wsdl/mensageria/v1/paginacao", "registroInicial");
+					
+					parser(VinculacaoProfissionalService.PAG_QTD_REGISTROS, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/wsdl/mensageria/v1/paginacao", "quantidadeRegistros");
+					
+					parser(VinculacaoProfissionalService.PAG_TOTAL_REGISTROS, eElement,
+							"http://servicos.saude.gov.br/cnes/v1r0/vinculacaoprofissionalservice", "ResponseVinculacaos",
+							"http://servicos.saude.gov.br/wsdl/mensageria/v1/paginacao", "totalRegistros");
 
 				}
 			}
