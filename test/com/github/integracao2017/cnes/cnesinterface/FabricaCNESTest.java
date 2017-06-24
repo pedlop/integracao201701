@@ -118,6 +118,24 @@ public class FabricaCNESTest {
             
         }
 
+        @Override
+        public void localizarEstabelecimentoSaudeLocalizacao(String longitude,
+                String latitude, String geoJson, String codigo,
+                String descricao, Callback callback) {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void localizarEstabelecimentoSaudePaginacao(String longitude,
+                String latitude, String geoJson, String codigo,
+                String descricao, String posRegistroInicio,
+                String qtdRegistroPagina, String qtdRegistros,
+                Callback callback) {
+            // TODO Auto-generated method stub
+            
+        }
+
     }
 
     static class ConexaoTeste implements Conexao {

@@ -14,8 +14,7 @@ import com.github.integracao2017.cnes.implementacao.servicos.EquipamentoServiceP
 import com.github.integracao2017.cnes.implementacao.servicos.EstabelecimentoSaudeServiceParser;
 
 /**
- * Created by gabriel on 08/05/17.
- * Edited by lucas on 23/06/17
+ * Created by gabriel on 08/05/17. Edited by lucas on 23/06/17
  */
 public class CNES implements BarramentoCNES {
 
@@ -42,13 +41,14 @@ public class CNES implements BarramentoCNES {
         }
         this.urls = urls;
     }
-    
+
     @Override
     public void consultarEquipamentoCod(String cnes, Callback c) {
         if (cnes == null || c == null || cnes.length() != 7
                 || REGEX_SO_NUMEROS.matcher(cnes).matches()) {
-            throw new IllegalArgumentException("C�digo CNES utilizado para consulta"
-                    + "; TIPO: Texto; TAM: 7.");
+            throw new IllegalArgumentException(
+                    "C�digo CNES utilizado para consulta"
+                            + "; TIPO: Texto; TAM: 7.");
         }
 
         /** Tratamento do xml para retornar o map. */
@@ -61,8 +61,9 @@ public class CNES implements BarramentoCNES {
     public void consultarEstabelecimentoCod(String cnes, Callback c) {
         if (cnes == null || c == null || cnes.length() != 7
                 || REGEX_SO_NUMEROS.matcher(cnes).matches()) {
-            throw new IllegalArgumentException("Código CNES utilizado para consulta"
-                    + "; TIPO: Texto; TAM: 7.");
+            throw new IllegalArgumentException(
+                    "Código CNES utilizado para consulta"
+                            + "; TIPO: Texto; TAM: 7.");
         }
 
         /** Tratamento do xml para retornar o map. */
@@ -75,8 +76,9 @@ public class CNES implements BarramentoCNES {
     public void consultarEstabelecimentoCnpj(String cnpj, Callback c) {
         if (cnpj == null || cnpj.length() != 14
                 || REGEX_SO_NUMEROS.matcher(cnpj).matches()) {
-            throw new IllegalArgumentException("Código CNES utilizado para consulta"
-                    + "; TIPO: Texto; TAM: 14.");
+            throw new IllegalArgumentException(
+                    "Código CNES utilizado para consulta"
+                            + "; TIPO: Texto; TAM: 14.");
         }
 
         /** Tratamento do xml para retornar o map. */
@@ -84,15 +86,16 @@ public class CNES implements BarramentoCNES {
                 montaConsultarEstabelecimento(2, cnpj),
                 new EstabelecimentoSaudeServiceParser(c));
     }
-    
+
     @Override
     public void consultarPreCadastroCNESCod(String cnes, Callback c) {
         if (cnes == null || c == null || cnes.length() != 7
                 || REGEX_SO_NUMEROS.matcher(cnes).matches()) {
-            throw new IllegalArgumentException("Código CNES utilizado para consulta. "
-                    + "TIPO: Texto; TAM: 7.");
+            throw new IllegalArgumentException(
+                    "Código CNES utilizado para consulta. "
+                            + "TIPO: Texto; TAM: 7.");
         }
-        
+
         /** Tratamento do xml para retornar o map. */
         this.conexao.requisicao(urls.get("ConsultarEstabelecimentoSaude"),
                 montaConsultarPrecadastroCNES(1, cnes),
@@ -100,8 +103,7 @@ public class CNES implements BarramentoCNES {
     }
 
     @Override
-    public void consultarPreCadastroCNESSituacao(String situacao,
-            Callback c) {
+    public void consultarPreCadastroCNESSituacao(String situacao, Callback c) {
         if (situacao == null || c == null || situacao.length() != 1)
             throw new IllegalArgumentException("Situação do Pré Cadastro "
                     + "valores permitidos {A, D ou E}. "
@@ -112,10 +114,57 @@ public class CNES implements BarramentoCNES {
                     + "valores permitidos {A, D ou E}. "
                     + " [A=ATIVO,D=DESATIVADO, E=EXCLUIDO]"
                     + " TIPO: Texto; TAM: 1.");
-        
+
         /** Tratamento do xml para retornar o map. */
         this.conexao.requisicao(urls.get("ConsultarEstabelecimentoSaude"),
                 montaConsultarPrecadastroCNES(2, situacao),
+                new EstabelecimentoSaudeServiceParser(c));
+    }
+
+    @Override
+    public void localizarEstabelecimentoSaudeLocalizacao(String longitude,
+            String latitude, String geoJson, String codigo, String descricao,
+            Callback c) {
+        if (longitude == null || latitude == null || longitude.length() > 9
+                || latitude.length() > 9)
+            throw new IllegalArgumentException("Logintude e Latitude passada"
+                    + " nula valores inválidos.");
+
+        /** Tratamento do xml para retornar o map. */
+        this.conexao.requisicao(urls.get("ConsultarEstabelecimentoSaude"),
+                montaConsultaEstabelecimentoLocalizacao(longitude, latitude,
+                        geoJson, codigo, descricao, null, null, null),
+                new EstabelecimentoSaudeServiceParser(c));
+    }
+
+    @Override
+    public void localizarEstabelecimentoSaudePaginacao(String longitude,
+            String latitude, String geoJson, String codigo, String descricao,
+            String posRegistroInicio, String qtdRegistroPagina,
+            String qtdRegistros, Callback c) {
+        if (longitude == null || latitude == null || longitude.length() > 9
+                || latitude.length() > 9)
+            throw new IllegalArgumentException("Logintude e Latitude passada"
+                    + " nula valores inválidos.");
+        if (posRegistroInicio == null || qtdRegistroPagina == null
+                || qtdRegistros == null || posRegistroInicio.length() > 7
+                || qtdRegistroPagina.length() > 7 || qtdRegistros.length() > 7
+                || REGEX_SO_NUMEROS.matcher(posRegistroInicio).matches()
+                || REGEX_SO_NUMEROS.matcher(qtdRegistroPagina).matches()
+                || REGEX_SO_NUMEROS.matcher(qtdRegistros).matches()) {
+            throw new IllegalArgumentException("Posição de inicio registro "
+                    + "ou quantidade de registros por página "
+                    + "ou quantidade de registro "
+                    + " nula valores inválidos."
+                    + " Campos de tamanho máximo de 7 caracteres permitido"
+                    + " somente números.");
+        }
+
+        /** Tratamento do xml para retornar o map. */
+        this.conexao.requisicao(urls.get("ConsultarEstabelecimentoSaude"),
+                montaConsultaEstabelecimentoLocalizacao(longitude, latitude,
+                        geoJson, codigo, descricao, posRegistroInicio,
+                        qtdRegistroPagina, qtdRegistros),
                 new EstabelecimentoSaudeServiceParser(c));
     }
 
@@ -166,13 +215,15 @@ public class CNES implements BarramentoCNES {
             Pattern.CASE_INSENSITIVE);
 
     private String EquipamentoService_codigo;
-    
+
     private String EstabelecimentoSaudeService_cnpj;
 
     private String EstabelecimentoSaudeService_codigo;
-    
+
+    private String EstabelecimentoSaudeService_localizacao;
+
     private String ConsultarPrecadastroCNES_codigo;
-    
+
     private String ConsultarPrecadastroCNES_situacao;
 
     /**
@@ -201,7 +252,91 @@ public class CNES implements BarramentoCNES {
                     "<cnpj:numeroCNPJ>" + parametro + "</cnpj:numeroCNPJ>");
         }
     }
-    
+
+    /**
+     * @param longitude
+     *            - Longitude.
+     * @param latitude
+     *            - Latitude.
+     * @param geoJson
+     *            - Geo json.
+     * @param codigo
+     *            - Codigo.
+     * @param descricao
+     *            - Descricao do estab.
+     * @param posRegisInicio
+     *            - Pos de inicio do registro.
+     * @param qtdRegisPagina
+     *            - Qtd de registros por pagina.
+     * @param qtdRegist
+     *            - Qtd total de registros.
+     * @return Cabecalho da request por localizacao.
+     */
+    private String montaConsultaEstabelecimentoLocalizacao(String longitude,
+            String latitude, String geoJson, String codigo, String descricao,
+            String posRegisInicio, String qtdRegisPagina, String qtdRegist) {
+        EstabelecimentoSaudeService_localizacao = buscaArquivoRequest(
+                "EstabelecimentoSaudeService_localizacao.xml");
+        EstabelecimentoSaudeService_localizacao.replace(
+                "<loc:longitude>?</loc:longitude>",
+                "<loc:longitude>" + longitude + "</loc:longitude>");
+        EstabelecimentoSaudeService_localizacao.replace(
+                "<loc:latitude>?</loc:latitude>",
+                "<loc:latitude>" + latitude + "</loc:latitude>");
+        if (geoJson != null)
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<loc:geoJson>?</loc:geoJson>",
+                    "<loc:geoJson>" + geoJson + "</loc:geoJson>");
+        if (codigo != null && descricao != null) {
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<tip:codigo>?</tip:codigo>",
+                    "<tip:codigo>" + codigo + "</tip:codigo>");
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<tip:descricao>?</tip:descricao>",
+                    "<tip:descricao>" + descricao + "</tip:descricao>");
+        } else {
+            EstabelecimentoSaudeService_localizacao
+                    .replace("<tip:codigo>?</tip:codigo>", "");
+            EstabelecimentoSaudeService_localizacao
+                    .replace("<tip:descricao>?</tip:descricao>", "");
+            EstabelecimentoSaudeService_localizacao.replace("<tip:tipoUnidade>",
+                    "");
+            EstabelecimentoSaudeService_localizacao
+                    .replace("</tip:tipoUnidade>", "");
+        }
+        if (posRegisInicio != null && qtdRegisPagina != null) {
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<pag:posicaoRegistroInicio>?</pag:posicaoRegistroInicio>",
+                    "<pag:posicaoRegistroInicio>" + posRegisInicio
+                            + "</pag:posicaoRegistroInicio>");
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<pag:quantidadeRegistrosPorPagina>?</pag:quantidadeRegistrosPorPagina>",
+                    "<pag:quantidadeRegistrosPorPagina>" + qtdRegisPagina
+                            + "</pag:quantidadeRegistrosPorPagina>");
+
+            if (qtdRegist != null)
+                EstabelecimentoSaudeService_localizacao.replace(
+                        "<pag:quantidadeRegistros>?</pag:quantidadeRegistros>",
+                        "<pag:quantidadeRegistros>" + qtdRegist
+                                + "</pag:quantidadeRegistros>");
+        } else {
+            EstabelecimentoSaudeService_localizacao.replace("<pag:Paginacao>",
+                    "");
+            EstabelecimentoSaudeService_localizacao.replace("</pag:Paginacao>",
+                    "");
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<pag:posicaoRegistroInicio>?</pag:posicaoRegistroInicio>",
+                    "");
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<pag:quantidadeRegistrosPorPagina>?</pag:quantidadeRegistrosPorPagina>",
+                    "");
+            EstabelecimentoSaudeService_localizacao.replace(
+                    "<pag:quantidadeRegistros>?</pag:quantidadeRegistros>", "");
+        }
+
+        return EstabelecimentoSaudeService_localizacao;
+    }
+
     /**
      * @param opcao
      *            - 1 código CNES. 2 situacao.
@@ -228,7 +363,7 @@ public class CNES implements BarramentoCNES {
                     "<fil:situacao>" + parametro + "</fil:situacao>");
         }
     }
-    
+
     /**
      * @param opcao
      *            - 1 código CNES
@@ -237,13 +372,12 @@ public class CNES implements BarramentoCNES {
      * @return xml de request montado.
      */
     private String montaConsultarEquipamento(String parametro) {
-    	if (EquipamentoService_codigo == null)
-    		EquipamentoService_codigo = buscaArquivoRequest(
-    				"EquipamentoService_codigo.xml");
+        if (EquipamentoService_codigo == null)
+            EquipamentoService_codigo = buscaArquivoRequest(
+                    "EquipamentoService_codigo.xml");
 
-    	return EquipamentoService_codigo.replace(
-    			"<cod:codigo>?</cod:codigo>",
-    			"<cod:codigo>" + parametro + "</cod:codigo>");
+        return EquipamentoService_codigo.replace("<cod:codigo>?</cod:codigo>",
+                "<cod:codigo>" + parametro + "</cod:codigo>");
     }
 
     /**

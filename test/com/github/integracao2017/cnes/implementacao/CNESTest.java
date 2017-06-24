@@ -148,6 +148,68 @@ public class CNESTest {
         callback = (Map<String, Retorno> m) -> { };
         cnes.consultarEstabelecimentoCnpj("67652163000120", callback);
     }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void localizarEstabelecimentoSaudeLocalizacao() {
+        cnes = new CNES();
+        cnes.localizarEstabelecimentoSaudeLocalizacao(null, null, null, null,
+                null, null);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void localizarEstabelecimentoSaudeLocalizacao1() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.localizarEstabelecimentoSaudeLocalizacao(null, null, null, null,
+                null, callback);
+    }
+    
+    @Test()
+    public void localizarEstabelecimentoSaudeLocalizacao4() {
+        cnes = carregaCNES(new CNES());
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.localizarEstabelecimentoSaudeLocalizacao("-45.99400", "-3.56500", "", "",
+                null, callback);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void localizarEstabelecimentoSaudePaginacao() {
+        cnes = new CNES();
+        cnes.localizarEstabelecimentoSaudePaginacao("-45.99400", "-3.56500", "", "", "",
+                null, null, null, null);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void localizarEstabelecimentoSaudePaginacao1() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.localizarEstabelecimentoSaudePaginacao("-45.99400", "-3.56500", "", "", "",
+                null, null, null, callback);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void localizarEstabelecimentoSaudePaginacao2() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.localizarEstabelecimentoSaudePaginacao("-45.99400", "-3.56500", "", "", "",
+                "a", "a", "a", callback);
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void localizarEstabelecimentoSaudePaginacao3() {
+        cnes = new CNES();
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.localizarEstabelecimentoSaudePaginacao("-45.99400", "-3.56500", "", "", "",
+                "12345678", "12345678", "12345678", callback);
+    }
+    
+    @Test()
+    public void localizarEstabelecimentoSaudePaginacao4() {
+        cnes = carregaCNES(new CNES());
+        callback = (Map<String, Retorno> m) -> { };
+        cnes.localizarEstabelecimentoSaudePaginacao("-45.99400", "-3.56500", "", "", "",
+                "123467", "123467", "123467", callback);
+    }
 
     @Test(expected=IllegalArgumentException.class)
     public void consultarPreCadastroCNESCod() {

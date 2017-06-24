@@ -52,7 +52,7 @@ public interface BarramentoCNES {
      * EquipamentoService
      * 
      * @param cnes
-     *            - C�digo CNES utilizado para consulta, tamanho 7 s� n�meros.
+     *            - C�digo CNES utilizado para consulta, tamanho 7 s� n�meros.
      * @param callback
      *            - Consumer do HashMap, com as chaves definidas no
      *            {@link EquipamentoService}.
@@ -94,6 +94,48 @@ public interface BarramentoCNES {
     void consultarPreCadastroCNESCod(String cnes, Callback callback);
     
     
+    /** 
+     * @param longitude 
+     *            - Longitude do estabelecimento. 
+     * @param latitude 
+     *            - Latitude do estabelecimento. 
+     * @param geoJson 
+     *            - Geojson do estabelecimento 
+     * @param callback 
+     *            - Consumer do HashMap, com as chaves definidas no 
+     *            {@link EstabelecimentoSaudeService}. 
+     */ 
+    void localizarEstabelecimentoSaudeLocalizacao(String longitude, String latitude, 
+            String geoJson, String codigo, String descricao, Callback callback); 
+ 
+    /** 
+     * @param longitude 
+     *            - Longitude do estabelecimento. TEXTO 9 
+     * @param latitude 
+     *            - Latitude utilizada para consulta. TEXTO 9 
+     * @param geoJson 
+     *            - Geojson do estabelecimento. EX. 
+     *            {"type":"Feature","geometry":{"type":"Point","coordinates":["-45.84121","-3.68787"]}} 
+     * @param codigo 
+     *            - Código do Tipo de Unidade do Estabelecimento de Saúde. TEXTO 
+     *            2 só números. 
+     * @param descricao 
+     *            - Descrição do Tipo de Unidade do Estabelecimento de Saúde. 
+     * @param posRegistroInicio 
+     *            - Posição de inicio do registro. 
+     * @param qtdRegistroPagina 
+     *            - Quantidade de registros por página. 
+     * @param qtdRegistros 
+     *            - Quantidade de registros total da consulta. 
+     * @param callback 
+     *            - - Consumer do HashMap, com as chaves definidas no 
+     *            {@link EstabelecimentoSaudeService}. 
+     */ 
+    void localizarEstabelecimentoSaudePaginacao(String longitude, 
+            String latitude, String geoJson, String codigo, String descricao, 
+            String posRegistroInicio, String qtdRegistroPagina, 
+            String qtdRegistros, Callback callback); 
+
     /**
      * EstabelecimentoSaudeService
      * 
