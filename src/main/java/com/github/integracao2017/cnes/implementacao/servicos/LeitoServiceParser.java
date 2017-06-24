@@ -1,7 +1,6 @@
 package com.github.integracao2017.cnes.implementacao.servicos;
 
 import com.github.integracao2017.cnes.cnesinterface.Callback;
-import com.github.integracao2017.cnes.cnesinterface.EquipamentoService;
 import com.github.integracao2017.cnes.cnesinterface.LeitoService;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
