@@ -12,7 +12,7 @@ import org.w3c.dom.NodeList;
  * @version 1.0.0
  *          <p>
  *          Objetivo classe com a logica para realizar parse das respotas vindas
- *          do servico de consulta de estabelecimento de saude.
+ *          do servico de consulta de Leito.
  */
 public class LeitoServiceParser extends Servico {
 
