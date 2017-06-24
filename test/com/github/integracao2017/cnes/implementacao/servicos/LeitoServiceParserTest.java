@@ -15,7 +15,7 @@ import com.github.integracao2017.cnes.cnesinterface.retorno.Retorno;
  * @author lucas
  * @version 1.0.0
  * Classe de teste do parser do servico de consulta
- * de equipamento.
+ * de leito.
  */
 public class LeitoServiceParserTest extends ServiceParserTest {
 
@@ -32,7 +32,7 @@ public class LeitoServiceParserTest extends ServiceParserTest {
             testRetStrgn(m, LeitoService.QUANTIDADE_LEITO, "10");
             testRetStrgn(m, LeitoService.QUANTIDADE_LEITO_SUS, "15");
         };
-        Consumer<String> c = new EquipamentoServiceParser(callback);
+        Consumer<String> c = new LeitoServiceParser(callback);
         c.accept(strBuild.toString());
         assert(true);
     }

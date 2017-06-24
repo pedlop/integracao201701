@@ -1,7 +1,6 @@
 package com.github.integracao2017.cnes.implementacao.servicos;
 
 import com.github.integracao2017.cnes.cnesinterface.Callback;
-import com.github.integracao2017.cnes.cnesinterface.EquipamentoService;
 import com.github.integracao2017.cnes.cnesinterface.LeitoService;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -12,7 +11,7 @@ import org.w3c.dom.NodeList;
  * @version 1.0.0
  *          <p>
  *          Objetivo classe com a logica para realizar parse das respotas vindas
- *          do servico de consulta de estabelecimento de saude.
+ *          do servico de consulta de Leito.
  */
 public class LeitoServiceParser extends Servico {
 
