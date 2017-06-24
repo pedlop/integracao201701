@@ -1,4 +1,7 @@
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:equ="http://servicos.saude.gov.br/cnes/v1r0/equipamentoservice" xmlns:equ1="http://servicos.saude.gov.br/schema/cnes/v1r0/equipamento" xmlns:tip="http://servicos.saude.gov.br/schema/cnes/v1r0/tipoequipamento">
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+               xmlns:equ="http://servicos.saude.gov.br/cnes/v1r0/equipamentoservice"
+               xmlns:equ1="http://servicos.saude.gov.br/schema/cnes/v1r0/equipamento"
+               xmlns:tip="http://servicos.saude.gov.br/schema/cnes/v1r0/tipoequipamento">
     <soap:Header/>
     <soap:Body>
         <equ:responseConsultarEquipamentos>

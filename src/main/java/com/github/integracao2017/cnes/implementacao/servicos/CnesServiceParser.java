@@ -2,6 +2,7 @@ package com.github.integracao2017.cnes.implementacao.servicos;
 
 import com.github.integracao2017.cnes.cnesinterface.Callback;
 import com.github.integracao2017.cnes.cnesinterface.CnesService;
+import com.github.integracao2017.cnes.cnesinterface.LeitoService;
 import com.github.integracao2017.cnes.cnesinterface.ProfissionalSaudeService;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -78,11 +79,11 @@ public class CnesServiceParser extends Servico {
                             "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "CBO",
                             "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "descricaoCBO");
 
-                    parser(CnesService.LEITO_CODIGO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "codigo");
-                    parser(CnesService.LEITO_DESCRICAO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "descricao");
-                    parser(CnesService.LEITO_DATA_ATUALIZACAO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "dataAtualizacao");
-                    parser(CnesService.LEITO_QUANTIDADE, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeito");
-                    parser(CnesService.LEITO_QUANTIDADE_SUS, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeitoSUS");
+                    parser(LeitoService.CODIGO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "codigo");
+                    parser(LeitoService.DESCRICAO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "descricao");
+                    parser(LeitoService.DATA_ATUALIZACAO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "dataAtualizacao");
+                    parser(LeitoService.QUANTIDADE_LEITO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeito");
+                    parser(LeitoService.QUANTIDADE_LEITO_SUS, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeitoSUS");
 
 
                     /*

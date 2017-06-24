@@ -1,0 +1,17 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+               xmlns:leit="http://servicos.saude.gov.br/cnes/v1r0/leitoservice"
+               xmlns:leit1="http://servicos.saude.gov.br/schema/cnes/v1r0/leito">
+    <soap:Header/>
+    <soap:Body>
+        <leit:responseConsultarLeitosCNES>
+            <!--Zero or more repetitions:-->
+            <leit1:leito>
+                 <leit1:codigo>123</leit1:codigo>
+                 <leit1:descricao>So mais um leito</leit1:descricao>
+                 <leit1:dataAtualizacao>2015-12-16</leit1:dataAtualizacao>
+                 <leit1:quantidadeLeito>10</leit1:quantidadeLeito>
+                 <leit1:quantidadeLeitoSUS>15</leit1:quantidadeLeitoSUS>
+            </leit1:leito>
+        </leit:responseConsultarLeitosCNES>
+    </soap:Body>
+</soap:Envelope>
