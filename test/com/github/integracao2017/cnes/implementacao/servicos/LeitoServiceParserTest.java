@@ -32,7 +32,7 @@ public class LeitoServiceParserTest extends ServiceParserTest {
             testRetStrgn(m, LeitoService.QUANTIDADE_LEITO, "10");
             testRetStrgn(m, LeitoService.QUANTIDADE_LEITO_SUS, "15");
         };
-        Consumer<String> c = new EquipamentoServiceParser(callback);
+        Consumer<String> c = new LeitoServiceParser(callback);
         c.accept(strBuild.toString());
         assert(true);
     }
