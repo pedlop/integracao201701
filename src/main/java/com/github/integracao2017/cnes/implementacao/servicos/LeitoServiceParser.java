@@ -35,23 +35,23 @@ public class LeitoServiceParser extends Servico {
                     Element eElement = (Element) node;
 
                     parser(LeitoService.CODIGO, eElement,
-                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "Leito",
+                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "leito",
                             "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "codigo");
 
                     parser(LeitoService.DESCRICAO, eElement,
-                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "Leito",
+                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "leito",
                             "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "descricao");
 
                     parser(LeitoService.DATA_ATUALIZACAO, eElement,
-                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "Leito",
+                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "leito",
                             "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "dataAtualizacao");
 
                     parser(LeitoService.QUANTIDADE_LEITO, eElement,
-                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "Leito",
+                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "leito",
                             "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeito");
 
                     parser(LeitoService.QUANTIDADE_LEITO_SUS, eElement,
-                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "Leito",
+                            "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "leito",
                             "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeitoSUS");
                 }
             }
