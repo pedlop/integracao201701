@@ -1,9 +1,6 @@
 package com.github.integracao2017.cnes.implementacao.servicos;
 
-import com.github.integracao2017.cnes.cnesinterface.Callback;
-import com.github.integracao2017.cnes.cnesinterface.CnesService;
-import com.github.integracao2017.cnes.cnesinterface.LeitoService;
-import com.github.integracao2017.cnes.cnesinterface.ProfissionalSaudeService;
+import com.github.integracao2017.cnes.cnesinterface.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -64,39 +61,55 @@ public class CnesServiceParser extends Servico {
                     parser(CnesService.TIPO_TELEFONE_DDD, element, "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Telefone", "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone", "DDD");
                     parser(CnesService.NUMERO_TELEFONE, element, "http://servicos.saude.gov.br/schema/cnes/v1r0/dadosgeraiscnes", "Telefone", "http://servicos.saude.gov.br/schema/corporativo/telefone/v1r2/telefone", "numeroTelefone");
 
-                    parser(ProfissionalSaudeService.PROF_NOME, element,
-                            "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto", "Nome");
-                    parser(ProfissionalSaudeService.PROF_CNS_NUM, element,
-                            "http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "CNS",
-                            "http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "numeroCNS");
-                    parser(ProfissionalSaudeService.PROF_CPF, element,
-                            "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf", "numeroCPF");
-                    parser(ProfissionalSaudeService.PROF_COD_CBO, element,
-                            "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "CBO",
-                            "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "codigoCBO");
+                    NodeList nodeListChild  = getNameSpace(element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "profissional");
 
-                    parser(ProfissionalSaudeService.PROF_DESC_CBO, element,
-                            "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "CBO",
-                            "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "descricaoCBO");
+                    for (int j = 0; j < nodeListChild.getLength(); j++) {
+                        Element childElement = (Element) nodeListChild.item(j);
+                        parser(ProfissionalSaudeService.PROF_NOME, childElement,
+                                "http://servicos.saude.gov.br/schema/corporativo/pessoafisica/v1r2/nomecompleto", "Nome");
+                        parser(ProfissionalSaudeService.PROF_CNS_NUM, childElement,
+                                "http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "CNS",
+                                "http://servicos.saude.gov.br/schema/cadsus/v5r0/cns", "numeroCNS");
+                        parser(ProfissionalSaudeService.PROF_CPF, childElement,
+                                "http://servicos.saude.gov.br/schema/corporativo/documento/v1r2/cpf", "numeroCPF");
+                        parser(ProfissionalSaudeService.PROF_COD_CBO, childElement,
+                                "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "CBO",
+                                "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "codigoCBO");
 
-                    parser(LeitoService.CODIGO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "codigo");
-                    parser(LeitoService.DESCRICAO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "descricao");
-                    parser(LeitoService.DATA_ATUALIZACAO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "dataAtualizacao");
-                    parser(LeitoService.QUANTIDADE_LEITO, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeito");
-                    parser(LeitoService.QUANTIDADE_LEITO_SUS, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeitoSUS");
+                        parser(ProfissionalSaudeService.PROF_DESC_CBO, childElement,
+                                "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "CBO",
+                                "http://servicos.saude.gov.br/schema/profissionalsaude/v1r0/cbo", "descricaoCBO");
+                    }
+
+                    nodeListChild  = getNameSpace(element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito");
+
+                    for (int j = 0; j < nodeListChild.getLength(); j++) {
+
+                        Element childElement = (Element) nodeListChild.item(j);
+
+                        parser(LeitoService.CODIGO, childElement, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "codigo");
+                        parser(LeitoService.DESCRICAO, childElement, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "descricao");
+                        parser(LeitoService.DATA_ATUALIZACAO, childElement, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "dataAtualizacao");
+                        parser(LeitoService.QUANTIDADE_LEITO, childElement, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeito");
+                        parser(LeitoService.QUANTIDADE_LEITO_SUS, childElement, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "leito", "http://servicos.saude.gov.br/schema/cnes/v1r0/leito", "quantidadeLeitoSUS");
+                    }
+
+                    nodeListChild  = getNameSpace(element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "equipamento");
+
+                    for (int j = 0; j < nodeListChild.getLength(); j++) {
+                        Element childElement = (Element) nodeListChild.item(j);
+
+                        parser(EquipamentoService.CODIGO_EQUIPAMENTO, childElement, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+                        parser(EquipamentoService.DESCRICAO_EQUIPAMENTO, childElement, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+                        parser(EquipamentoService.CODIGO_TIPOEQUIPAMENTO, childElement, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+                        parser(EquipamentoService.DESCRICAO_TIPOEQUIPAMENTO, childElement, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+                        parser(EquipamentoService.QUANTIDADE_EQUIPAMENTO, childElement, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+                        parser(EquipamentoService.QUANTIDADEUSO_EQUIPAMENTO, childElement, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+                        parser(EquipamentoService.DISPONIBILIDADESUS_EQUIPAMENTO, childElement, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
+
+                    }
 
 
-                    /*
-                    * EquipamentoService Parser requerido
-                    *
-                    * parser(EquipamentoService.CODIGO_EQUIPAMENTO, element, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
-                    * parser(EquipamentoService.DESCRICAO_EQUIPAMENTO, element, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
-                    * parser(EquipamentoService.CODIGO_TIPOEQUIPAMENTO, element, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
-                    * parser(EquipamentoService.DESCRICAO_TIPOEQUIPAMENTO, element, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
-                    * parser(EquipamentoService.QUANTIDADE_EQUIPAMENTO, element, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
-                    * parser(EquipamentoService.QUANTIDADEUSO_EQUIPAMENTO, element, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
-                    * parser(EquipamentoService.DISPONIBILIDADESUS_EQUIPAMENTO, element, "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Endereco", "http://servicos.saude.gov.br/schema/corporativo/endereco/v1r2/endereco", "Municipio", "http://servicos.saude.gov.br/schema/corporativo/v1r2/municipio", "codigoMunicipio");
-                    */
                     parser(CnesService.SUMARIO_QTD_PROFISSIONAIS_SAUDE, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "sumario", "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "quantidadeProfissionaisSaude");
                     parser(CnesService.SUMARIO_QTD_CBOS, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "sumario", "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "quantidadeCBOS");
                     parser(CnesService.SUMARIO_QTD_LEITOS, element, "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "sumario", "http://servicos.saude.gov.br/wsdl/mensageria/v1r0/resultadopesquisaestabelecimentosaude", "quantidadeLeitos");
